@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="css/estilos.css" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mompat Prendas y Tejidos</title>
+  <link rel="stylesheet" href="css/estilos.css" />
 
-  <!-- Fuente moderna y elegante -->
+  <!-- Fuente moderna -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <style>
@@ -111,6 +111,20 @@
       color: #777;
     }
 
+    .producto button {
+      background-color: #d17b88;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .producto button:hover {
+      background-color: #b85f66;
+    }
+
     #quienes-somos {
       padding: 40px 20px;
       background-color: #fefefe;
@@ -161,28 +175,47 @@
     <h2>Tejidos únicos hechos con amor</h2>
   </div>
 
+  <!-- Botón flotante del carrito -->
+  <button id="btn-carrito">🛒 Carrito (<span id="contador">0</span>)</button>
+
+  <!-- Carrito lateral -->
+  <div id="carrito-panel" class="carrito-panel">
+    <button id="cerrar-carrito">×</button>
+    <h2>Tu carrito</h2>
+    <ul id="lista-carrito"></ul>
+    <p>Total: $<span id="total">0</span></p>
+    <button id="btn-comprar">Comprar</button>
+    <button id="btn-vaciar">Vaciar carrito</button>
+  </div>
+
+  <!-- Fondo oscuro -->
+  <div id="overlay" class="overlay"></div>
+
   <main>
     <section class="productos">
       <div class="producto">
         <img src="img/tejido1.jpg" alt="Tejido 1">
         <h3>Chal eco natural</h3>
         <p>$3.200</p>
+        <button onclick="agregarAlCarrito('Chal eco natural', 3200)">Agregar al carrito</button>
       </div>
       <div class="producto">
         <img src="img/tejido2.jpg" alt="Tejido 2">
         <h3>Poncho artesanal</h3>
         <p>$5.400</p>
+        <button onclick="agregarAlCarrito('Poncho artesanal', 5400)">Agregar al carrito</button>
       </div>
       <div class="producto">
         <img src="img/tejido3.jpg" alt="Tejido 3">
         <h3>Cubre mesa</h3>
         <p>$12.800</p>
-      </div>
+        <button onclick="agregarAlCarrito('Cubre mesa', 12800)">Agregar al carrito</button>
       </div>
       <div class="producto">
         <img src="img/tejido4.jpg" alt="Tejido 4">
-        <h3>Conjunto bebe</h3>
+        <h3>Conjunto bebé</h3>
         <p>$22.800</p>
+        <button onclick="agregarAlCarrito('Conjunto bebé', 22800)">Agregar al carrito</button>
       </div>
     </section>
 
@@ -198,8 +231,6 @@
     &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
   </footer>
 
-</body>
-</html>
-
+  <script src="js/main.js"></script>
 </body>
 </html>
