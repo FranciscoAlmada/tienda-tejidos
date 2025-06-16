@@ -1,7 +1,41 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <head>
+  <style>
+    .boton-comprar, .boton-whatsapp {
+      display: inline-block;
+      margin: 5px 0;
+      padding: 10px 15px;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 0.9rem;
+      width: fit-content;
+    }
+
+    .boton-comprar {
+      background-color: #3483fa;
+    }
+
+    .boton-comprar:hover {
+      background-color: #2968c8;
+    }
+
+    .boton-whatsapp {
+      background-color: #25d366;
+      margin-left: 10px;
+    }
+
+    .boton-whatsapp:hover {
+      background-color: #1ebe5b;
+    }
+  </style>
+</head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Productos | Mompat Prendas y Tejidos</title>
@@ -9,7 +43,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Tu CSS existente */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -162,25 +195,33 @@
     </section>
 
     <section class="productos">
-      <div class="producto">
-        <img src="img/tejido1.jpg" alt="Chal tejido a mano" />
-        <h3>Chal tejido a mano</h3>
-        <p>$24.500</p>
-        <button onclick="agregarAlCarrito('Chal tejido a mano', 24500)">Agregar al carrito</button>
-      </div>
+  <div class="producto">
+    <img src="img/tejido1.jpg" alt="Chal tejido a mano" />
+    <h3>Chal tejido a mano</h3>
+    <p>$24.500</p>
+    <button onclick="agregarAlCarrito('Chal tejido a mano', 24500)">Agregar al carrito</button><br><br>
+    <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+  </div>
 
-      <div class="producto">
-        <img src="img/tejido2.jpg" alt="Bufanda rústica" />
-        <h3>Bufanda rústica</h3>
-        <p>$13.200</p>
-        <button onclick="agregarAlCarrito('Bufanda rústica', 13200)">Agregar al carrito</button>
-      </div>
+  <div class="producto">
+    <img src="img/tejido2.jpg" alt="Bufanda rústica" />
+    <h3>Bufanda rústica</h3>
+    <p>$13.200</p>
+    <button onclick="agregarAlCarrito('Bufanda rústica', 13200)">Agregar al carrito</button><br><br>
+    <a href="https://mpago.la/tu_link_bufanda" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+  </div>
+
+</section>
 
       <div class="producto">
         <img src="img/tejido3.jpg" alt="Gorro artesanal" />
         <h3>Gorro artesanal</h3>
         <p>$18.000</p>
         <button onclick="agregarAlCarrito('Gorro artesanal', 18000)">Agregar al carrito</button>
+         <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
       </div>
 
       <div class="producto">
@@ -188,6 +229,8 @@
         <h3>Poncho de lana</h3>
         <p>$35.800</p>
         <button onclick="agregarAlCarrito('Poncho de lana', 35800)">Agregar al carrito</button>
+         <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
       </div>
 
       <div class="producto">
@@ -195,6 +238,8 @@
         <h3>Camino de mesa tejido</h3>
         <p>$10.900</p>
         <button onclick="agregarAlCarrito('Camino de mesa tejido', 10900)">Agregar al carrito</button>
+         <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
       </div>
 
       <div class="producto">
@@ -202,6 +247,8 @@
         <h3>Bolso artesanal</h3>
         <p>$15.700</p>
         <button onclick="agregarAlCarrito('Bolso artesanal', 15700)">Agregar al carrito</button>
+         <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+    <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
       </div>
     </section>
   </main>
@@ -214,5 +261,5 @@
 </body>
 </html>
 
->>>>>>> 5fe105398b08cd7b3fab05ffc90713d5fba4ac15
+
 
