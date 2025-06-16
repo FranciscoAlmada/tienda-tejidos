@@ -193,12 +193,11 @@
   </header>
 
   <nav>
-  <a href="index.html">Inicio</a>
-  <a href="productos.html">Productos</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="#detalle-carrito" style="margin-left: 20px; font-weight: bold;">🛒 Carrito (<span id="contador">0</span>)</a>
-</nav>
-
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="#detalle-carrito" style="margin-left: 20px; font-weight: bold;">🛒 Carrito (<span id="contador">0</span>)</a>
+  </nav>
 
   <main>
     <h2>Nuestros Productos</h2>
@@ -274,46 +273,70 @@
 
   <script>
     let carrito = [];
-    let total = 0;
 
+    // Mostrar el carrito actualizado y contador
+    function actualizarCarrito() {
+      const lista = document.getElementById('lista-carrito');
+      const contador = document.getElementById('contador');
+      const totalElem = document.getElementById('total');
+
+      lista.innerHTML = '';
+      let total = 0;
+
+      carrito.forEach((producto, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-AR')}`;
+
+        // Botón eliminar producto del carrito
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = 'X';
+        btnEliminar.style.marginLeft = '10px';
+        btnEliminar.style.background = 'none';
+        btnEliminar.style.border = 'none';
+        btnEliminar.style.color = '#d17b88';
+        btnEliminar.style.cursor = 'pointer';
+
+        btnEliminar.onclick = () => {
+          carrito.splice(index, 1);
+          actualizarCarrito();
+        };
+
+        li.appendChild(btnEliminar);
+        lista.appendChild(li);
+        total += producto.precio;
+      });
+
+      contador.textContent = carrito.length;
+      totalElem.textContent = total.toLocaleString('es-AR');
+    }
+
+    // Agregar producto al carrito
     function agregarAlCarrito(nombre, precio) {
       carrito.push({ nombre, precio });
       actualizarCarrito();
     }
 
-    function actualizarCarrito() {
-      const listaCarrito = document.getElementById("lista-carrito");
-      const totalElemento = document.getElementById("total");
-
-      listaCarrito.innerHTML = "";
-      carrito.forEach(producto => {
-        const li = document.createElement("li");
-        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString()}`;
-        listaCarrito.appendChild(li);
-      });
-
-      total = carrito.reduce((acc, p) => acc + p.precio, 0);
-      totalElemento.textContent = total.toLocaleString();
-      document.getElementById("contador")?.textContent = carrito.length;
-    }
-
+    // Vaciar carrito
     function limpiarCarrito() {
       carrito = [];
       actualizarCarrito();
-      alert("Carrito vaciado correctamente.");
+      alert('Carrito vaciado correctamente.');
     }
 
+    // Finalizar compra
     function finalizarCompra() {
       if (carrito.length === 0) {
-        alert("El carrito está vacío.");
+        alert('El carrito está vacío.');
         return;
       }
 
-      let mensaje = "¡Gracias por tu compra!\n\nProductos:\n";
+      let mensaje = '¡Gracias por tu compra!\n\nProductos:\n';
       carrito.forEach(p => {
-        mensaje += `- ${p.nombre}: $${p.precio.toLocaleString()}\n`;
+        mensaje += `- ${p.nombre}: $${p.precio.toLocaleString('es-AR')}\n`;
       });
-      mensaje += `\nTotal: $${total.toLocaleString()}`;
+
+      const total = carrito.reduce((acc, p) => acc + p.precio, 0);
+      mensaje += `\nTotal: $${total.toLocaleString('es-AR')}`;
 
       alert(mensaje);
       limpiarCarrito();
