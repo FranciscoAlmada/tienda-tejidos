@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -212,3 +213,220 @@
   <script src="js/main.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Productos | Mompat Prendas y Tejidos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Tu CSS existente */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+    header {
+      background-color: #f8f8f8;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    header img {
+      width: 150px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #555;
+      margin: 0 20px;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #d17b88;
+    }
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .producto {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background-color: #fafafa;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .producto img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .producto h3 {
+      font-size: 1.2rem;
+      margin: 15px 0 5px;
+    }
+    .producto p {
+      color: #777;
+      margin-bottom: 15px;
+    }
+    #detalle-carrito {
+      margin-bottom: 40px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fafafa;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #lista-carrito {
+      list-style: none;
+      padding-left: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+    #lista-carrito li {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    #total {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    #detalle-carrito button {
+      background-color: #d17b88;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    #detalle-carrito button:hover {
+      background-color: #b55e65;
+    }
+    footer {
+      background-color: #f8f8f8;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 60px;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+<div id="carrito">
+  🛒 Carrito (<span id="contador">0</span>)
+  <button onclick="limpiarCarrito()">Vaciar carrito</button>
+</div>
+
+  <header>
+    <img src="img/logo.png" alt="Logo Mompat" />
+    <h1>Mompat Prendas y Tejidos</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="productos.html">Productos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <main>
+    <h2>Nuestros Productos</h2>
+
+    <section id="detalle-carrito">
+      <h2>Tu carrito</h2>
+      <ul id="lista-carrito"></ul>
+      <p>Total: $<span id="total">0</span></p>
+      <button onclick="finalizarCompra()">Comprar</button>
+    </section>
+
+    <section class="productos">
+      <div class="producto">
+        <img src="img/tejido1.jpg" alt="Chal tejido a mano" />
+        <h3>Chal tejido a mano</h3>
+        <p>$24.500</p>
+        <button onclick="agregarAlCarrito('Chal tejido a mano', 24500)">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tejido2.jpg" alt="Bufanda rústica" />
+        <h3>Bufanda rústica</h3>
+        <p>$13.200</p>
+        <button onclick="agregarAlCarrito('Bufanda rústica', 13200)">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tejido3.jpg" alt="Gorro artesanal" />
+        <h3>Gorro artesanal</h3>
+        <p>$18.000</p>
+        <button onclick="agregarAlCarrito('Gorro artesanal', 18000)">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tejido4.jpg" alt="Poncho de lana" />
+        <h3>Poncho de lana</h3>
+        <p>$35.800</p>
+        <button onclick="agregarAlCarrito('Poncho de lana', 35800)">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tejido5.jpg" alt="Camino de mesa tejido" />
+        <h3>Camino de mesa tejido</h3>
+        <p>$10.900</p>
+        <button onclick="agregarAlCarrito('Camino de mesa tejido', 10900)">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tejido6.jpg" alt="Bolso artesanal" />
+        <h3>Bolso artesanal</h3>
+        <p>$15.700</p>
+        <button onclick="agregarAlCarrito('Bolso artesanal', 15700)">Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+>>>>>>> 5fe105398b08cd7b3fab05ffc90713d5fba4ac15
