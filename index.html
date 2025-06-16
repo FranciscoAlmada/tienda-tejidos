@@ -5,28 +5,219 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tienda de Tejidos</title>
   <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    /* Estilos básicos para los productos y carrito */
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #5a2a2a; }
+    .producto {
+      border: 1px solid #ccc; 
+      padding: 10px; 
+      margin-bottom: 10px;
+      max-width: 300px;
+    }
+    .producto button {
+      margin-top: 5px; 
+      padding: 5px 10px; 
+      cursor: pointer;
+      background-color: #5a2a2a; 
+      color: white; 
+      border: none;
+      border-radius: 3px;
+    }
+    #carrito {
+      border: 1px solid #555; 
+      padding: 10px; 
+      margin-top: 20px; 
+      max-width: 320px;
+    }
+    #carrito h2 { margin-top: 0; }
+    .item-carrito {
+      border-bottom: 1px solid #ddd; 
+      padding: 5px 0;
+    }
+    .item-carrito button {
+      margin-left: 10px;
+      padding: 2px 6px;
+      cursor: pointer;
+      background-color: #aa4444;
+      color: white;
+      border: none;
+      border-radius: 3px;
+    }
+    form {
+      margin-top: 20px; 
+      max-width: 400px;
+    }
+    form input, form textarea {
+      width: 100%; 
+      padding: 8px; 
+      margin: 5px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    form button {
+      background-color: #5a2a2a; 
+      color: white; 
+      padding: 10px; 
+      border: none; 
+      cursor: pointer; 
+      border-radius: 3px;
+      font-size: 16px;
+    }
+    nav a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #5a2a2a;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    header img {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Bienvenidos a Mompat Prendas y Tejidos </h1>
+    <h1>Bienvenidos a Mompat Prendas y Tejidos</h1>
+    <img src="logo/logo.png" alt="Logo Tienda de Tejidos" />
   </header>
-<header>
- <img src="Logo/logo.png.png" alt="Logo Tienda de Tejidos" style="width: 200px;">
 
   <nav>
     <a href="index.html">Inicio</a>
     <a href="productos.html">Productos</a>
     <a href="contacto.html">Contacto</a>
   </nav>
-<nav class="menu-principal">
-  <!-- enlaces -->
-</nav>
 
   <main class="container">
-  <p>"Descubre tejidos artesanales únicos hechos a mano"</p>
-</main>
+    <p>"Descubre tejidos artesanales únicos hechos a mano"</p>
 
+    <section id="productos"></section>
 
-  <script src="js/main.js"></script>
+    <section id="carrito">
+      <h2>Carrito</h2>
+      <div id="items-carrito">
+        <p>El carrito está vacío.</p>
+      </div>
+      <strong>Total: $<span id="total">0</span></strong>
+    </section>
+
+    <form id="form-compra">
+      <h2>Datos para finalizar compra</h2>
+      <input type="text" id="nombre" placeholder="Nombre completo" required />
+      <input type="email" id="email" placeholder="Correo electrónico" required />
+      <input type="text" id="telefono" placeholder="Teléfono" />
+      <textarea id="direccion" placeholder="Dirección de envío" required></textarea>
+      <button type="submit">Finalizar compra</button>
+    </form>
+  </main>
+
+  <script>
+    const productos = [
+      { id: 1, nombre: 'Tejido azul', precio: 1500 },
+      { id: 2, nombre: 'Tejido rojo', precio: 1800 },
+      { id: 3, nombre: 'Tejido verde', precio: 2000 }
+    ];
+
+    let carrito = [];
+
+    const productosDiv = document.getElementById('productos');
+    const itemsCarritoDiv = document.getElementById('items-carrito');
+    const totalSpan = document.getElementById('total');
+    const formCompra = document.getElementById('form-compra');
+
+    function mostrarProductos() {
+      productosDiv.innerHTML = '';
+      productos.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'producto';
+        div.innerHTML = `
+          <strong>${p.nombre}</strong><br />
+          Precio: $${p.precio} <br />
+          <button onclick="agregarAlCarrito(${p.id})">Agregar al carrito</button>
+        `;
+        productosDiv.appendChild(div);
+      });
+    }
+
+    function agregarAlCarrito(id) {
+      const producto = productos.find(p => p.id === id);
+      if (!producto) return;
+
+      const item = carrito.find(i => i.id === id);
+      if (item) {
+        item.cantidad++;
+      } else {
+        carrito.push({ ...producto, cantidad: 1 });
+      }
+      mostrarCarrito();
+    }
+
+    function quitarDelCarrito(id) {
+      carrito = carrito.filter(i => i.id !== id);
+      mostrarCarrito();
+    }
+
+    function mostrarCarrito() {
+      itemsCarritoDiv.innerHTML = '';
+      if (carrito.length === 0) {
+        itemsCarritoDiv.innerHTML = '<p>El carrito está vacío.</p>';
+        totalSpan.innerText = '0';
+        return;
+      }
+      let total = 0;
+      carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+        const div = document.createElement('div');
+        div.className = 'item-carrito';
+        div.innerHTML = `
+          ${item.nombre} - $${item.precio} x ${item.cantidad} = $${item.precio * item.cantidad}
+          <button onclick="quitarDelCarrito(${item.id})">Eliminar</button>
+        `;
+        itemsCarritoDiv.appendChild(div);
+      });
+      totalSpan.innerText = total;
+    }
+
+    formCompra.addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío. Agrega productos antes de comprar.');
+        return;
+      }
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const direccion = document.getElementById('direccion').value.trim();
+
+      let resumen = `Gracias por tu compra, ${nombre}!\n\n`;
+      resumen += 'Detalles de tu pedido:\n';
+      carrito.forEach(item => {
+        resumen += `- ${item.nombre} x${item.cantidad}: $${item.precio * item.cantidad}\n`;
+      });
+      resumen += `Total: $${carrito.reduce((acc, i) => acc + i.precio * i.cantidad, 0)}\n\n`;
+      resumen += `Datos de contacto:\nEmail: ${email}\nTeléfono: ${telefono}\nDirección: ${direccion}`;
+
+      alert(resumen);
+
+      carrito = [];
+      mostrarCarrito();
+      formCompra.reset();
+    });
+
+    mostrarProductos();
+    mostrarCarrito();
+
+    // Hacer funciones accesibles desde botones inline HTML
+    window.agregarAlCarrito = agregarAlCarrito;
+    window.quitarDelCarrito = quitarDelCarrito;
+  </script>
 </body>
 </html>
