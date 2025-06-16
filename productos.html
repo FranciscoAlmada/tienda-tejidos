@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -85,7 +86,8 @@
     .producto img {
       width: 100%;
       height: 250px;
-      object-fit: cover;
+      object-fit: contain;
+      background-color: #fff;
     }
 
     .producto h3 {
@@ -183,6 +185,32 @@
       margin-top: 60px;
       border-top: 1px solid #ddd;
     }
+
+    /* Estilos paginación */
+    #paginacion {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    #paginacion button {
+      background-color: #d17b88;
+      border: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #paginacion button:hover {
+      background-color: #b55e65;
+    }
+
+    #paginacion button.active {
+      background-color: #2968c8;
+    }
   </style>
 </head>
 
@@ -210,8 +238,9 @@
       <button onclick="finalizarCompra()">Comprar</button>
     </section>
 
-    <section class="productos">
-      <div class="producto">
+    <section class="productos" id="productos-lista">
+      <!-- Productos con clase paginada -->
+      <div class="producto pagina-1">
         <img src="img/tejidoproductos1.jpg" alt="Mantel tejido a mano" />
         <h3>Mantel tejido a mano</h3>
         <p>$14.500</p>
@@ -220,7 +249,7 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
 
-      <div class="producto">
+      <div class="producto pagina-1">
         <img src="img/tejidoproductos2.jpg" alt="Saco para perros" />
         <h3>Saco para perros</h3>
         <p>$13.200</p>
@@ -229,7 +258,7 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
 
-      <div class="producto">
+      <div class="producto pagina-1">
         <img src="img/tejidoproducto3.jpg" alt="Gorro artesanal" />
         <h3>Individual de tela con borde al crochet</h3>
         <p>$10.000</p>
@@ -238,7 +267,7 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
 
-      <div class="producto">
+      <div class="producto pagina-2" style="display:none;">
         <img src="img/tejidoproducto4.jpg" alt="Saco" />
         <h3>Saco</h3>
         <p>$45.000</p>
@@ -247,7 +276,7 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
 
-      <div class="producto">
+      <div class="producto pagina-2" style="display:none;">
         <img src="img/tejido5.jpg" alt="Camino de mesa tejido" />
         <h3>Camino de mesa tejido</h3>
         <p>$10.900</p>
@@ -256,7 +285,7 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
 
-      <div class="producto">
+      <div class="producto pagina-2" style="display:none;">
         <img src="img/tejido6.jpg" alt="Bolso artesanal" />
         <h3>Bolso artesanal</h3>
         <p>$15.700</p>
@@ -265,6 +294,8 @@
         <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
       </div>
     </section>
+
+    <div id="paginacion"></div>
   </main>
 
   <footer>
@@ -272,9 +303,9 @@
   </footer>
 
   <script>
+    // --- Carrito ---
     let carrito = [];
 
-    // Mostrar el carrito actualizado y contador
     function actualizarCarrito() {
       const lista = document.getElementById('lista-carrito');
       const contador = document.getElementById('contador');
@@ -287,7 +318,6 @@
         const li = document.createElement('li');
         li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-AR')}`;
 
-        // Botón eliminar producto del carrito
         const btnEliminar = document.createElement('button');
         btnEliminar.textContent = 'X';
         btnEliminar.style.marginLeft = '10px';
@@ -310,20 +340,17 @@
       totalElem.textContent = total.toLocaleString('es-AR');
     }
 
-    // Agregar producto al carrito
     function agregarAlCarrito(nombre, precio) {
       carrito.push({ nombre, precio });
       actualizarCarrito();
     }
 
-    // Vaciar carrito
     function limpiarCarrito() {
       carrito = [];
       actualizarCarrito();
       alert('Carrito vaciado correctamente.');
     }
 
-    // Finalizar compra
     function finalizarCompra() {
       if (carrito.length === 0) {
         alert('El carrito está vacío.');
@@ -341,6 +368,45 @@
       alert(mensaje);
       limpiarCarrito();
     }
+
+    // --- Paginación ---
+    const productosPorPagina = 3;
+    let paginaActual = 1;
+
+    const productos = document.querySelectorAll('.producto');
+    const totalPaginas = Math.ceil(productos.length / productosPorPagina);
+
+    const paginacionDiv = document.getElementById('paginacion');
+
+    function mostrarPagina(pagina) {
+      paginaActual = pagina;
+
+      productos.forEach(producto => producto.style.display = 'none');
+
+      // Mostrar productos de la página
+      document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
+
+      // Actualizar botones
+      const botones = paginacionDiv.querySelectorAll('button');
+      botones.forEach(btn => btn.classList.remove('active'));
+      if (botones[pagina - 1]) botones[pagina - 1].classList.add('active');
+
+      // Hacer scroll arriba de productos (opcional)
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function crearPaginacion() {
+      for (let i = 1; i <= totalPaginas; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        if(i === paginaActual) btn.classList.add('active');
+        btn.onclick = () => mostrarPagina(i);
+        paginacionDiv.appendChild(btn);
+      }
+    }
+
+    crearPaginacion();
+    mostrarPagina(1);
   </script>
 </body>
 </html>
