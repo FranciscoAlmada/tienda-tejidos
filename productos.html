@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +7,18 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
   <style>
+    :root {
+  --color-principal: #d17b88;
+  --color-secundario: #f3e5e8;
+  --gris-suave: #f8f8f8;
+  --texto: #333;
+  --fuente: 'Poppins', sans-serif;
+}
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -408,8 +418,143 @@
     crearPaginacion();
     mostrarPagina(1);
   </script>
+  <script>
+  <!-- El resto del código HEAD permanece igual -->
+
+<!-- Justo antes de cerrar el <body>, reemplaza todo el <script> anterior por este: -->
+
+<script>
+  let carrito = [];
+
+  function actualizarCarrito() {
+    const lista = document.getElementById('lista-carrito');
+    const contador = document.getElementById('contador');
+    const totalElem = document.getElementById('total');
+
+    lista.innerHTML = '';
+    let total = 0;
+
+    carrito.forEach((producto, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-AR')}`;
+
+      const btnEliminar = document.createElement('button');
+      btnEliminar.textContent = '❌';
+      btnEliminar.style.marginLeft = '10px';
+      btnEliminar.style.background = 'none';
+      btnEliminar.style.border = 'none';
+      btnEliminar.style.color = '#d17b88';
+      btnEliminar.style.cursor = 'pointer';
+      btnEliminar.title = 'Eliminar del carrito';
+
+      btnEliminar.onclick = () => {
+        carrito.splice(index, 1);
+        actualizarCarrito();
+      };
+
+      li.appendChild(btnEliminar);
+      lista.appendChild(li);
+      total += producto.precio;
+    });
+
+    contador.textContent = carrito.length;
+    totalElem.textContent = total.toLocaleString('es-AR');
+  }
+
+  function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+    mostrarMensaje(`${nombre} fue agregado al carrito.`);
+  }
+
+  function limpiarCarrito() {
+    if (carrito.length === 0) {
+      mostrarMensaje('El carrito ya está vacío.');
+      return;
+    }
+
+    if (confirm('¿Estás seguro de que querés vaciar el carrito?')) {
+      carrito = [];
+      actualizarCarrito();
+      mostrarMensaje('Carrito vaciado correctamente.');
+    }
+  }
+
+  function finalizarCompra() {
+    if (carrito.length === 0) {
+      mostrarMensaje('El carrito está vacío.');
+      return;
+    }
+
+    let mensaje = '🧺 ¡Gracias por tu compra!\n\nProductos:\n';
+    carrito.forEach(p => {
+      mensaje += `- ${p.nombre}: $${p.precio.toLocaleString('es-AR')}\n`;
+    });
+
+    const total = carrito.reduce((acc, p) => acc + p.precio, 0);
+    mensaje += `\nTotal: $${total.toLocaleString('es-AR')}`;
+
+    alert(mensaje);
+    carrito = [];
+    actualizarCarrito();
+  }
+
+  function mostrarMensaje(texto) {
+    const div = document.createElement('div');
+    div.textContent = texto;
+    div.style.position = 'fixed';
+    div.style.bottom = '20px';
+    div.style.right = '20px';
+    div.style.background = '#d17b88';
+    div.style.color = 'white';
+    div.style.padding = '10px 20px';
+    div.style.borderRadius = '8px';
+    div.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+    div.style.zIndex = '1000';
+    document.body.appendChild(div);
+
+    setTimeout(() => {
+      div.remove();
+    }, 3000);
+  }
+
+  // Paginación
+  const productosPorPagina = 3;
+  let paginaActual = 1;
+
+  const productos = document.querySelectorAll('.producto');
+  const totalPaginas = Math.ceil(productos.length / productosPorPagina);
+
+  const paginacionDiv = document.getElementById('paginacion');
+
+  function mostrarPagina(pagina) {
+    paginaActual = pagina;
+    productos.forEach(producto => producto.style.display = 'none');
+    document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
+
+    const botones = paginacionDiv.querySelectorAll('button');
+    botones.forEach(btn => btn.classList.remove('active'));
+    if (botones[pagina - 1]) botones[pagina - 1].classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function crearPaginacion() {
+    for (let i = 1; i <= totalPaginas; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === paginaActual) btn.classList.add('active');
+      btn.onclick = () => mostrarPagina(i);
+      paginacionDiv.appendChild(btn);
+    }
+  }
+
+  crearPaginacion();
+  mostrarPagina(1);
+</script>
+
+
 </body>
 </html>
-
 
 
