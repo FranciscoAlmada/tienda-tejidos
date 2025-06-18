@@ -1,15 +1,15 @@
 :root {
-    --color-principal-claro: #d8b4a0; /* Tu color de cabecera/borde */
-    --color-principal-oscuro: #7a5c4d; /* Tu color de navegación/títulos */
-    --color-acento: #d17b88; /* Tu color de botones/acentos */
-    --color-acento-hover: #b85f66; /* Hover de botones */
-    --color-hover-nav: #d79c7c; /* Hover de navegación */
+    --color-principal-claro: #d8b4a0; 
+    --color-principal-oscuro: #7a5c4d; 
+    --color-acento: #d17b88; 
+    --color-acento-hover: #b85f66; 
+    --color-hover-nav: #d79c7c; 
 
     --color-fondo-body: #fdfaf6;
     --color-texto-principal: #443b32;
-    --color-texto-secundario: #5a4a3b; /* Texto de precio, labels */
-    --color-fondo-claro: #fff; /* Fondo de productos, modal */
-    --color-borde-suave: #e4dcd4; /* Borde de productos, modal */
+    --color-texto-secundario: #5a4a3b; 
+    --color-fondo-claro: #fff; 
+    --color-borde-suave: #e4dcd4; 
 
     --toast-success: #2ecc71;
     --toast-error: #e74c3c;
@@ -661,4 +661,9 @@ footer {
     .carrito-panel.mostrar {
         right: 0;
     }
+}.descripcion-breve {
+    color: var(--color-texto-secundario);
+    font-size: 0.9rem;
+    margin-bottom: 10px; 
+    line-height: 1.4;
 }
