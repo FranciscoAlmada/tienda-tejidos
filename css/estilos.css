@@ -1,15 +1,15 @@
 :root {
-    --color-principal-claro: #d8b4a0; 
-    --color-principal-oscuro: #7a5c4d; 
-    --color-acento: #d17b88; 
-    --color-acento-hover: #b85f66; 
-    --color-hover-nav: #d79c7c; 
+    --color-principal-claro: #d8b4a0;
+    --color-principal-oscuro: #7a5c4d;
+    --color-acento: #d17b88;
+    --color-acento-hover: #b85f66;
+    --color-hover-nav: #d79c7c;
 
     --color-fondo-body: #fdfaf6;
     --color-texto-principal: #443b32;
-    --color-texto-secundario: #5a4a3b; 
-    --color-fondo-claro: #fff; 
-    --color-borde-suave: #e4dcd4; 
+    --color-texto-secundario: #5a4a3b;
+    --color-fondo-claro: #fff;
+    --color-borde-suave: #e4dcd4;
 
     --toast-success: #2ecc71;
     --toast-error: #e74c3c;
@@ -23,7 +23,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
     background-color: var(--color-fondo-body);
     color: var(--color-texto-principal);
     line-height: 1.6;
@@ -62,7 +62,7 @@ nav a:hover {
 }
 
 .hero {
-    background: url('img/hero.jpg') center/cover no-repeat; 
+    background: url('img/hero.jpg') center/cover no-repeat;
     height: 300px;
     display: flex;
     align-items: center;
@@ -112,18 +112,51 @@ h2 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.producto img {
+/* --- Estilos ACTUALIZADOS para el efecto de Hover en las imágenes --- */
+.imagen-container {
+    position: relative;
     width: 100%;
-    height: 250px;
-    object-fit: cover;
+    height: 250px; /* Asegura una altura definida para el contenedor */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
     border-radius: 10px;
-    transition: transform 0.4s ease;
-    cursor: zoom-in;
+    margin-bottom: 15px; /* Espacio entre la imagen y el título del producto */
 }
 
-.producto:hover img {
+.imagen-container img {
+    position: absolute; /* Posiciona las imágenes absolutamente dentro del contenedor */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    border-radius: 10px;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Transición para opacidad y escala */
+    cursor: pointer; /* Cursor de puntero al pasar por encima */
+}
+
+.imagen-container .imagen-principal {
+    opacity: 1; /* La imagen principal es visible por defecto */
+    z-index: 2; /* Asegura que la imagen principal esté por encima por defecto */
+}
+
+.imagen-container .imagen-hover {
+    opacity: 0; /* La imagen de hover está oculta por defecto */
+    z-index: 1; /* La imagen de hover está por debajo de la principal por defecto */
+}
+
+.producto:hover .imagen-container .imagen-principal {
+    opacity: 0; /* La imagen principal se desvanece al hacer hover */
+    /* Mantengo el transform de escala solo para el hover de la imagen, si quieres el efecto */
+    /* Si el problema de corte persiste, podrías probar a eliminar esta línea. */
     transform: scale(1.05);
 }
+
+.producto:hover .imagen-container .imagen-hover {
+    opacity: 1; /* La imagen de hover aparece al hacer hover */
+    transform: scale(1.05); /* Aplico la misma escala para que se vea un movimiento consistente */
+}
+/* --- Fin de Estilos ACTUALIZADOS para el efecto de Hover en las imágenes --- */
+
 
 .producto h3 {
     color: var(--color-principal-oscuro);
@@ -152,7 +185,7 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.producto button { 
+.producto button {
     background-color: var(--color-acento);
     color: white;
     border: none;
@@ -163,7 +196,7 @@ h2 {
 }
 
 .producto .boton-comprar {
-    background-color: #3483fa; 
+    background-color: #3483fa;
     color: white;
 }
 
@@ -172,7 +205,7 @@ h2 {
 }
 
 .producto .boton-whatsapp {
-    background-color: #25d366; 
+    background-color: #25d366;
     color: white;
 }
 
@@ -222,8 +255,9 @@ footer {
         font-size: 0.9rem;
     }
 
-    .producto img {
-        height: 200px;
+    /* Ajustar la altura del contenedor de imagen en responsive */
+    .imagen-container {
+        height: 200px; /* Consistente con .producto img en este breakpoint */
     }
 }
 
@@ -246,8 +280,9 @@ footer {
         gap: 20px;
     }
 
-    .producto img {
-        height: 180px;
+    /* Ajustar la altura del contenedor de imagen en responsive */
+    .imagen-container {
+        height: 180px; /* Consistente con .producto img en este breakpoint */
     }
 
     .producto h3 {
@@ -255,7 +290,7 @@ footer {
     }
 }
 
-#detalle-carrito { 
+#detalle-carrito {
     margin-bottom: 40px;
     border: 1px solid var(--color-borde-suave);
     padding: 20px;
@@ -265,7 +300,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    display: none; 
+    display: none;
 }
 
 #detalle-carrito h2 {
@@ -299,9 +334,6 @@ footer {
     color: var(--color-principal-oscuro);
 }
 
-
-
-
 #paginacion {
     text-align: center;
     margin: 30px 0;
@@ -324,7 +356,7 @@ footer {
 }
 
 #paginacion button.active {
-    background-color: var(--color-principal-oscuro); 
+    background-color: var(--color-principal-oscuro);
 }
 
 #message-container {
@@ -339,13 +371,13 @@ footer {
     opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.3s ease-out;
     transform: translateY(20px);
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 #message-container.show {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; 
+    pointer-events: auto;
 }
 
 #message-container[data-type="success"] {
@@ -359,7 +391,7 @@ footer {
 }
 
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -370,13 +402,13 @@ footer {
     background-color: rgba(0,0,0,0.6);
     justify-content: center;
     align-items: center;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.3s ease-out;
 }
 
 .modal.show {
-    display: flex; 
-    opacity: 1; 
+    display: flex;
+    opacity: 1;
 }
 
 .modal-contenido {
@@ -389,7 +421,7 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
     text-align: center;
-    transform: translateY(-50px); 
+    transform: translateY(-50px);
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
@@ -513,19 +545,19 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--color-acento); 
+    background-color: var(--color-acento);
     color: white;
     border: none;
     padding: 12px 18px;
-    border-radius: 50px; 
+    border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1001; 
+    z-index: 1001;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 8px; 
+    gap: 8px;
 }
 
 #btn-carrito:hover {
@@ -536,36 +568,36 @@ footer {
 .carrito-panel {
     position: fixed;
     top: 0;
-    right: -350px; 
+    right: -350px;
     width: 350px;
     height: 100vh;
     background: var(--color-fondo-claro);
     box-shadow: -2px 0 8px rgba(0,0,0,0.3);
     padding: 20px;
     box-sizing: border-box;
-    transition: right 0.3s ease; 
+    transition: right 0.3s ease;
     z-index: 1002;
-    overflow-y: auto; 
-    display: flex; 
+    overflow-y: auto;
+    display: flex;
     flex-direction: column;
 }
 
 .carrito-panel.mostrar {
-    right: 0; 
+    right: 0;
 }
 
 .carrito-panel h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: var(--color-principal-oscuro);
-    text-align: center; 
+    text-align: center;
 }
 
 .carrito-panel ul {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .carrito-panel li {
@@ -579,7 +611,7 @@ footer {
     font-size: 0.95em;
 }
 
-.carrito-panel li button.remove-from-cart { 
+.carrito-panel li button.remove-from-cart {
     font-weight: bold;
     border: none;
     background: none;
@@ -587,10 +619,10 @@ footer {
     cursor: pointer;
     margin-left: 10px;
     font-size: 1.1rem;
-    padding: 0 5px; 
+    padding: 0 5px;
     line-height: 1;
     transition: color 0.3s ease;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .carrito-panel li button.remove-from-cart:hover {
@@ -616,21 +648,21 @@ footer {
     background-color: var(--color-acento-hover);
 }
 
-#cerrar-carrito-panel { 
+#cerrar-carrito-panel {
     background: none;
     border: none;
     font-size: 24px;
-    color: #333; 
+    color: #333;
     position: absolute;
     top: 10px;
     right: 15px;
     cursor: pointer;
     transition: color 0.3s ease;
     line-height: 1;
-    padding: 5px; 
+    padding: 5px;
 }
 
-#cerrar-carrito-panel:hover { 
+#cerrar-carrito-panel:hover {
     color: var(--color-acento);
 }
 
@@ -641,29 +673,30 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index: 1000; 
-    display: none; 
-    opacity: 0; 
+    z-index: 1000;
+    display: none;
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .overlay.mostrar {
-    display: block; 
-    opacity: 1; 
+    display: block;
+    opacity: 1;
 }
 
 @media (max-width: 480px) {
     .carrito-panel {
-        width: 100%; 
+        width: 100%;
         right: -100%;
     }
     .carrito-panel.mostrar {
         right: 0;
     }
-}.descripcion-breve {
+}
+.descripcion-breve {
     color: var(--color-texto-secundario);
     font-size: 0.9rem;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     line-height: 1.4;
 }
 
@@ -673,7 +706,7 @@ footer {
 
 .form-group {
     margin-bottom: 15px;
-    text-align: left; 
+    text-align: left;
 }
 
 .form-group label {
@@ -694,7 +727,7 @@ footer {
     font-size: 1rem;
     color: var(--color-texto-principal);
     background-color: var(--color-fondo-claro);
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .form-group input:focus,
@@ -709,10 +742,10 @@ footer {
     justify-content: space-around;
     gap: 10px;
     margin-top: 20px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
-.carrito-panel button { 
+.carrito-panel button {
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
@@ -720,7 +753,7 @@ footer {
     font-size: 1em;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 #proceder-al-pago,
@@ -793,31 +826,31 @@ footer {
 }
 
 #cerrar-carrito-panel {
-    background: none; 
+    background: none;
     border: none;
-    color: #333; 
+    color: #333;
     font-size: 28px;
     position: absolute;
     top: 10px;
     right: 15px;
     cursor: pointer;
     transition: color 0.3s ease;
-    padding: 0; 
-    line-height: 1; 
-    transform: none; 
-    box-shadow: none; 
+    padding: 0;
+    line-height: 1;
+    transform: none;
+    box-shadow: none;
 }
 
 #cerrar-carrito-panel:hover {
     color: var(--color-acento);
-    transform: none; 
+    transform: none;
 }
 
 @media (max-width: 480px) {
     .carrito-panel {
         width: 100%;
         right: -100%;
-        padding: 15px; 
+        padding: 15px;
     }
 
     .form-group input,
@@ -827,7 +860,7 @@ footer {
     }
 
     .form-buttons button {
-        flex-grow: 1; 
+        flex-grow: 1;
         font-size: 0.9rem;
         padding: 10px 12px;
     }
@@ -837,7 +870,4 @@ footer {
         font-size: 1.2rem;
         margin-bottom: 15px;
     }
-}
-.hidden {
-    display: none !important;
 }
