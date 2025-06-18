@@ -194,10 +194,11 @@
         const totalCarritoPanel = document.getElementById('total-carrito-panel');
         const cantidadProductosCarrito = document.getElementById('cantidad-productos-carrito');
         const vaciarCarritoPanelBtn = document.getElementById('vaciar-carrito-panel');
-        const procederAlPagoBtn = document.getElementById('proceder-al-pago'); 
+        const procederAlPagoBtn = document.getElementById('proceder-al-pago');
 
         const overlay = document.querySelector('.overlay');
 
+        // Checkout form elements
         const carritoView = document.getElementById('carrito-view');
         const checkoutFormView = document.getElementById('checkout-form-view');
         const orderSummaryView = document.getElementById('order-summary-view');
@@ -220,6 +221,7 @@
         function abrirCarritoPanel() {
             carritoPanel.classList.add('mostrar');
             overlay.classList.add('mostrar');
+            // Show cart view by default when opening panel
             carritoView.classList.remove('hidden');
             checkoutFormView.classList.add('hidden');
             orderSummaryView.classList.add('hidden');
@@ -237,9 +239,9 @@
 
             if (carrito.length === 0) {
                 listaCarritoPanel.innerHTML = '<li style="text-align: center; color: var(--color-texto-secundario);">Tu carrito está vacío.</li>';
-                procederAlPagoBtn.disabled = true; 
+                procederAlPagoBtn.disabled = true;
             } else {
-                procederAlPagoBtn.disabled = false; 
+                procederAlPagoBtn.disabled = false;
                 carrito.forEach((item, index) => {
                     const li = document.createElement('li');
                     li.innerHTML = `
@@ -298,9 +300,9 @@
                 actualizarCarritoUI();
                 showMessage('Carrito vaciado correctamente.', 'success');
                 if (carritoPanel.classList.contains('mostrar')) {
-                     carritoView.classList.remove('hidden');
-                     checkoutFormView.classList.add('hidden');
-                     orderSummaryView.classList.add('hidden');
+                    carritoView.classList.remove('hidden');
+                    checkoutFormView.classList.add('hidden');
+                    orderSummaryView.classList.add('hidden');
                 }
             }
         }
@@ -316,9 +318,9 @@
             setTimeout(() => {
                 modalCompra.style.display = 'none';
             }, 300);
-            carrito = []; 
-            datosCliente = {}; 
-            localStorage.removeItem('datosCliente'); 
+            carrito = [];
+            datosCliente = {};
+            localStorage.removeItem('datosCliente');
             actualizarCarritoUI();
             showMessage('¡Compra finalizada con éxito! Te contactaremos pronto.', 'success');
         }
@@ -342,7 +344,7 @@
         }
 
         function showOrderSummary(event) {
-            event.preventDefault(); 
+            event.preventDefault();
 
             datosCliente = {
                 nombre: document.getElementById('nombre').value,
@@ -353,7 +355,7 @@
                 codigoPostal: document.getElementById('codigoPostal').value,
                 notas: document.getElementById('notas').value
             };
-            localStorage.setItem('datosCliente', JSON.stringify(datosCliente)); 
+            localStorage.setItem('datosCliente', JSON.stringify(datosCliente));
 
             let resumenHTML = '<h4>Productos:</h4><ul>';
             let total = 0;
@@ -400,8 +402,9 @@
             const whatsappURL = `https://wa.me/5493442530793?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
 
-            cerrarModal(); 
-            cerrarCarritoPanel(); 
+            cerrarModal();
+            cerrarCarritoPanel();
+        } // <--- ¡Esta es la llave que faltaba!
 
         const productosPorPagina = 3;
         let paginaActual = 1;
@@ -473,7 +476,7 @@
                 carritoView.classList.remove('hidden');
                 checkoutFormView.classList.add('hidden');
             });
-            editarDatosBtn.addEventListener('click', showCheckoutForm); 
+            editarDatosBtn.addEventListener('click', showCheckoutForm);
             finalizarPedidoWhatsappBtn.addEventListener('click', generateWhatsAppMessage);
 
 
