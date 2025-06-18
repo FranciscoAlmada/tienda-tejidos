@@ -6,9 +6,10 @@
     <title>Inicio | Mompat Prendas y Tejidos</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papbI+6VqYVZP+t0sqC9Qy4skP7kpVjDZl2I/xR7M3AxU0Zz9v7O1EoOmr5e+f9VoPQuvP8vFJmF64cX0Zl7T6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilos.css" />
 
-    </head>
+</head>
 <body>
 
     <header>
@@ -35,26 +36,26 @@
             <div class="producto">
                 <img src="img/tejido1.jpg" alt="Sweater">
                 <h3>Sweater</h3>
-                <p>$13.200</p>
-                <button class="add-to-cart" data-id="sw-001" data-name="Sweater" data-price="13200">Agregar al carrito</button><br><br>
+                <p>$50.000</p>
+                <button class="add-to-cart" data-id="sw-001" data-name="Sweater" data-price="50000">Agregar al carrito</button><br><br>
                 <a href="https://mpago.la/tu_link_sweater" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
             </div>
             <div class="producto">
                 <img src="img/tejido2.jpg" alt="Sweater blanco">
                 <h3>Sweater blanco</h3>
-                <p>$15.400</p>
-                <button class="add-to-cart" data-id="sw-002" data-name="Sweater blanco" data-price="15400">Agregar al carrito</button><br><br>
+                <p>50.000</p>
+                <button class="add-to-cart" data-id="sw-002" data-name="Sweater blanco" data-price="50000">Agregar al carrito</button><br><br>
                 <a href="https://mpago.la/tu_link_sweater_blanco" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
             </div>
             <div class="producto">
                 <img src="img/tejido3.jpg" alt="Cubre mesa">
-                <h3>Cubre mesa</h3>
+                <h3>Pie de cama</h3>
                 <p>$12.800</p>
-                <button class="add-to-cart" data-id="cm-001" data-name="Cubre mesa" data-price="12800">Agregar al carrito</button><br><br>
+                <button class="add-to-cart" data-id="cm-001" data-name="Pie de cama" data-price="12800">Agregar al carrito</button><br><br>
                 <a href="https://mpago.la/tu_link_cubre_mesa" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
             </div>
             <div class="producto">
                 <img src="img/tejido4.jpg" alt="Conjunto bebé">
@@ -62,7 +63,7 @@
                 <p>$22.800</p>
                 <button class="add-to-cart" data-id="cb-001" data-name="Conjunto bebé" data-price="22800">Agregar al carrito</button><br><br>
                 <a href="https://mpago.la/tu_link_conjunto_bebe" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
             </div>
         </section>
 
@@ -83,21 +84,6 @@
         &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
     </footer>
 
-    <button id="btn-carrito">
-        🛒 Carrito (<span id="contador-flotante">0</span>)
-    </button>
-
-    <div class="carrito-panel" id="carrito-panel">
-        <button id="cerrar-carrito">&times;</button>
-        <h2>Tu Carrito</h2>
-        <ul id="lista-carrito-panel"></ul>
-        <p>Total: $<span id="total-panel">0</span></p>
-        <button id="vaciar-carrito-panel">Vaciar carrito</button>
-        <button id="finalizar-compra-panel">Comprar</button>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
-
     <div id="modal-compra" class="modal">
         <div class="modal-contenido">
             <span id="cerrar-modal" class="cerrar">&times;</span>
@@ -107,21 +93,105 @@
         </div>
     </div>
 
-    <script>
-        let carrito = []; 
+    <button id="btn-carrito">🛒 Carrito (<span id="cantidad-productos-carrito">0</span>)</button>
 
-        const contadorFlotante = document.getElementById('contador-flotante');
-        const listaCarritoPanel = document.getElementById('lista-carrito-panel');
-        const totalPanel = document.getElementById('total-panel');
-        const carritoPanel = document.getElementById('carrito-panel');
-        const overlay = document.getElementById('overlay');
+    <div class="carrito-panel">
+        <button id="cerrar-carrito-panel" class="cerrar">&times;</button>
+        <h2>Carrito de Compras</h2>
+
+        <div id="carrito-view">
+            <ul id="lista-carrito-panel">
+            </ul>
+            <p id="total-carrito-panel">Total: $0.00</p>
+            <p class="carrito-vacio-msg">El carrito está vacío.</p>
+            <div class="cart-buttons">
+                <button id="vaciar-carrito-panel">Vaciar Carrito</button>
+                <button id="proceder-al-pago">Proceder al Pago</button>
+            </div>
+        </div>
+
+        <div id="checkout-form-view" class="hidden">
+            <h3>Datos de Envío y Contacto</h3>
+            <form id="datos-cliente-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono (WhatsApp):</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección de Envío:</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Calle, número, piso/depto." required>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                </div>
+                <div class="form-group">
+                    <label for="codigoPostal">Código Postal:</label>
+                    <input type="text" id="codigoPostal" name="codigoPostal" required>
+                </div>
+                <div class="form-group">
+                    <label for="notas">Notas Adicionales (opcional):</label>
+                    <textarea id="notas" name="notas" rows="3"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" id="volver-al-carrito">Volver al Carrito</button>
+                    <button type="submit" id="confirmar-datos">Confirmar Datos</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="order-summary-view" class="hidden">
+            <h3>Resumen de tu Pedido</h3>
+            <div id="resumen-contenido">
+            </div>
+            <div class="form-buttons">
+                <button type="button" id="editar-datos">Editar Datos</button>
+                <button type="button" id="finalizar-pedido-whatsapp">Enviar Pedido por WhatsApp</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="overlay"></div>
+    <script>
+        // Carrito y datos del cliente se guardan en localStorage para persistir entre páginas
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let datosCliente = JSON.parse(localStorage.getItem('datosCliente')) || {};
+
         const messageContainer = document.getElementById('message-container');
         const messageText = document.getElementById('message-text');
-
         const modalCompra = document.getElementById('modal-compra');
         const resumenCompraDiv = document.getElementById('resumen-compra');
         const cerrarModalBtn = document.getElementById('cerrar-modal');
         const btnVolverTienda = modalCompra.querySelector('.btn-volver');
+
+        const btnCarritoFlotante = document.getElementById('btn-carrito');
+        const carritoPanel = document.querySelector('.carrito-panel');
+        const cerrarCarritoPanelBtn = document.getElementById('cerrar-carrito-panel');
+        const listaCarritoPanel = document.getElementById('lista-carrito-panel');
+        const totalCarritoPanel = document.getElementById('total-carrito-panel');
+        const cantidadProductosCarrito = document.getElementById('cantidad-productos-carrito');
+        const vaciarCarritoPanelBtn = document.getElementById('vaciar-carrito-panel');
+        const procederAlPagoBtn = document.getElementById('proceder-al-pago');
+
+        const overlay = document.querySelector('.overlay');
+
+        // Checkout form elements
+        const carritoView = document.getElementById('carrito-view');
+        const checkoutFormView = document.getElementById('checkout-form-view');
+        const orderSummaryView = document.getElementById('order-summary-view');
+        const datosClienteForm = document.getElementById('datos-cliente-form');
+        const resumenContenido = document.getElementById('resumen-contenido');
+        const volverAlCarritoBtn = document.getElementById('volver-al-carrito');
+        const editarDatosBtn = document.getElementById('editar-datos');
+        const finalizarPedidoWhatsappBtn = document.getElementById('finalizar-pedido-whatsapp');
 
         function showMessage(text, type = 'success') {
             messageText.textContent = text;
@@ -133,33 +203,46 @@
             }, 3000);
         }
 
+        function abrirCarritoPanel() {
+            carritoPanel.classList.add('mostrar');
+            overlay.classList.add('mostrar');
+            // Show cart view by default when opening panel
+            carritoView.classList.remove('hidden');
+            checkoutFormView.classList.add('hidden');
+            orderSummaryView.classList.add('hidden');
+        }
+
+        function cerrarCarritoPanel() {
+            carritoPanel.classList.remove('mostrar');
+            overlay.classList.remove('mostrar');
+        }
+
         function actualizarCarritoUI() {
-            listaCarritoPanel.innerHTML = ''; 
+            listaCarritoPanel.innerHTML = '';
             let total = 0;
+            let cantidadTotalProductos = 0;
 
             if (carrito.length === 0) {
                 listaCarritoPanel.innerHTML = '<li style="text-align: center; color: var(--color-texto-secundario);">Tu carrito está vacío.</li>';
+                procederAlPagoBtn.disabled = true;
             } else {
+                procederAlPagoBtn.disabled = false;
                 carrito.forEach((item, index) => {
                     const li = document.createElement('li');
                     li.innerHTML = `
                         <span>${item.name} x ${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-AR')}</span>
-                        <button class="remove-from-cart" data-index="${index}">❌</button>
+                        <button class="remove-from-cart" data-id="${item.id}" data-index="${index}">❌</button>
                     `;
                     listaCarritoPanel.appendChild(li);
                     total += item.price * item.quantity;
+                    cantidadTotalProductos += item.quantity;
                 });
             }
 
-            contadorFlotante.textContent = carrito.reduce((acc, item) => acc + item.quantity, 0);
-            totalPanel.textContent = total.toLocaleString('es-AR');
+            cantidadProductosCarrito.textContent = cantidadTotalProductos;
+            totalCarritoPanel.textContent = `Total: $${total.toLocaleString('es-AR')}`;
 
-            document.querySelectorAll('#lista-carrito-panel .remove-from-cart').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const itemIndex = parseInt(event.target.dataset.index);
-                    eliminarDelCarrito(itemIndex);
-                });
-            });
+            localStorage.setItem('carrito', JSON.stringify(carrito));
         }
 
         function agregarAlCarrito(productId, productName, productPrice) {
@@ -175,14 +258,18 @@
             actualizarCarritoUI();
         }
 
-        function eliminarDelCarrito(index) {
-            const item = carrito[index];
-            if (item.quantity > 1) {
-                item.quantity--;
-                showMessage(`Una unidad de "${item.name}" fue eliminada.`, 'info');
-            } else {
-                carrito.splice(index, 1);
-                showMessage(`"${item.name}" fue eliminado del carrito.`, 'info');
+        function eliminarDelCarrito(id) {
+            const itemIndex = carrito.findIndex(item => item.id === id);
+
+            if (itemIndex > -1) {
+                if (carrito[itemIndex].quantity > 1) {
+                    carrito[itemIndex].quantity--;
+                    showMessage(`Una unidad de "${carrito[itemIndex].name}" fue eliminada.`, 'info');
+                } else {
+                    const removedItemName = carrito[itemIndex].name;
+                    carrito.splice(itemIndex, 1);
+                    showMessage(`"${removedItemName}" fue eliminado del carrito.`, 'info');
+                }
             }
             actualizarCarritoUI();
         }
@@ -197,53 +284,121 @@
                 carrito = [];
                 actualizarCarritoUI();
                 showMessage('Carrito vaciado correctamente.', 'success');
+                if (carritoPanel.classList.contains('mostrar')) {
+                    carritoView.classList.remove('hidden');
+                    checkoutFormView.classList.add('hidden');
+                    orderSummaryView.classList.add('hidden');
+                }
             }
         }
 
+        // Esta función abrirá el modal de "Gracias por tu compra" que tenías antes
+        // pero la usaremos al final del proceso de WhatsApp.
         function abrirModalCompra(resumenHTML) {
             resumenCompraDiv.innerHTML = resumenHTML;
-            modalCompra.style.display = 'flex'; 
+            modalCompra.style.display = 'flex';
             modalCompra.classList.add('show');
         }
 
+        // Esta función cerrará el modal de "Gracias por tu compra"
         function cerrarModal() {
             modalCompra.classList.remove('show');
             setTimeout(() => {
                 modalCompra.style.display = 'none';
             }, 300);
+            // Al cerrar el modal, vaciamos el carrito y los datos del cliente
+            carrito = [];
+            datosCliente = {};
+            localStorage.removeItem('datosCliente');
+            actualizarCarritoUI();
+            showMessage('¡Compra finalizada con éxito! Te contactaremos pronto.', 'success');
         }
 
-        function finalizarCompra() {
+        function showCheckoutForm() {
             if (carrito.length === 0) {
                 showMessage('Tu carrito está vacío. ¡Añade algunos productos para comprar!', 'error');
                 return;
             }
+            carritoView.classList.add('hidden');
+            checkoutFormView.classList.remove('hidden');
+            orderSummaryView.classList.add('hidden');
 
-            let resumenHTML = '';
-            carrito.forEach(p => {
-                resumenHTML += `<p>${p.name} x ${p.quantity}: <strong>$${(p.price * p.quantity).toLocaleString('es-AR')}</strong></p>`;
+            // Precarga los datos si ya existen en localStorage
+            if (datosCliente.nombre) document.getElementById('nombre').value = datosCliente.nombre;
+            if (datosCliente.email) document.getElementById('email').value = datosCliente.email;
+            if (datosCliente.telefono) document.getElementById('telefono').value = datosCliente.telefono;
+            if (datosCliente.direccion) document.getElementById('direccion').value = datosCliente.direccion;
+            if (datosCliente.ciudad) document.getElementById('ciudad').value = datosCliente.ciudad;
+            if (datosCliente.codigoPostal) document.getElementById('codigoPostal').value = datosCliente.codigoPostal;
+            if (datosCliente.notas) document.getElementById('notas').value = datosCliente.notas;
+        }
+
+        function showOrderSummary(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+            datosCliente = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                direccion: document.getElementById('direccion').value,
+                ciudad: document.getElementById('ciudad').value,
+                codigoPostal: document.getElementById('codigoPostal').value,
+                notas: document.getElementById('notas').value
+            };
+            localStorage.setItem('datosCliente', JSON.stringify(datosCliente)); // Guarda los datos del cliente
+
+            let resumenHTML = '<h4>Productos:</h4><ul>';
+            let total = 0;
+            carrito.forEach(item => {
+                resumenHTML += `<li>${item.name} x ${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-AR')}</li>`;
+                total += item.price * item.quantity;
+            });
+            resumenHTML += `</ul><p><strong>Total: $${total.toLocaleString('es-AR')}</strong></p>`;
+
+            resumenHTML += '<h4>Datos de Envío y Contacto:</h4>';
+            resumenHTML += `<p><strong>Nombre:</strong> ${datosCliente.nombre}</p>`;
+            resumenHTML += `<p><strong>Email:</strong> ${datosCliente.email}</p>`;
+            resumenHTML += `<p><strong>Teléfono:</strong> ${datosCliente.telefono}</p>`;
+            resumenHTML += `<p><strong>Dirección:</strong> ${datosCliente.direccion}, ${datosCliente.ciudad}, CP ${datosCliente.codigoPostal}</p>`;
+            if (datosCliente.notas) {
+                resumenHTML += `<p><strong>Notas:</strong> ${datosCliente.notas}</p>`;
+            }
+
+            resumenContenido.innerHTML = resumenHTML;
+
+            checkoutFormView.classList.add('hidden');
+            orderSummaryView.classList.remove('hidden');
+        }
+
+        function generateWhatsAppMessage() {
+            let message = "¡Hola! Me gustaría hacer un pedido:\n\n";
+            let total = 0;
+
+            carrito.forEach(item => {
+                message += `${item.name} (x${item.quantity}) - $${(item.price * item.quantity).toLocaleString('es-AR')}\n`;
+                total += item.price * item.quantity;
             });
 
-            const total = carrito.reduce((acc, p) => acc + (p.price * p.quantity), 0);
-            resumenHTML += `<p><strong>Total: $${total.toLocaleString('es-AR')}</strong></p>`;
+            message += `\nTotal: $${total.toLocaleString('es-AR')}\n\n`;
+            message += "Mis datos para el envío:\n";
+            message += `Nombre: ${datosCliente.nombre}\n`;
+            message += `Email: ${datosCliente.email}\n`;
+            message += `Teléfono: ${datosCliente.telefono}\n`;
+            message += `Dirección: ${datosCliente.direccion}, ${datosCliente.ciudad}, CP ${datosCliente.codigoPostal}\n`;
+            if (datosCliente.notas) {
+                message += `Notas: ${datosCliente.notas}\n`;
+            }
 
-            abrirModalCompra(resumenHTML);
+            const whatsappURL = `https://wa.me/5493442530793?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
 
-            carrito = [];
-            actualizarCarritoUI();
-            cerrarCarritoLateral();
-        }
-
-        function abrirCarritoLateral() {
-            carritoPanel.classList.add('mostrar');
-            overlay.classList.add('mostrar');
-            document.body.style.overflow = 'hidden'; 
-        }
-
-        function cerrarCarritoLateral() {
-            carritoPanel.classList.remove('mostrar');
-            overlay.classList.remove('mostrar');
-            document.body.style.overflow = ''; 
+            // Después de enviar por WhatsApp, cerramos el modal y el panel,
+            // y luego mostramos el modal de confirmación final.
+            cerrarCarritoPanel(); // Cierra el panel del carrito
+            // Muestra el modal de "Gracias por tu compra" que tenías antes
+            // Reutilizamos la función abrirModalCompra, pero sin un resumen específico porque el mensaje ya se envió.
+            // Puedes adaptar el contenido del modal si lo deseas, o simplemente llamo a cerrarModal para limpiar el carrito.
+            cerrarModal(); // Esta función ya vacía el carrito y los datos del cliente y muestra un mensaje de éxito.
         }
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -256,12 +411,28 @@
                 });
             });
 
-            document.getElementById('btn-carrito').addEventListener('click', abrirCarritoLateral);
-            document.getElementById('cerrar-carrito').addEventListener('click', cerrarCarritoLateral);
-            document.getElementById('overlay').addEventListener('click', cerrarCarritoLateral);
+            btnCarritoFlotante.addEventListener('click', abrirCarritoPanel);
+            cerrarCarritoPanelBtn.addEventListener('click', cerrarCarritoPanel);
+            overlay.addEventListener('click', cerrarCarritoPanel); 
 
-            document.getElementById('vaciar-carrito-panel').addEventListener('click', limpiarCarrito);
-            document.getElementById('finalizar-compra-panel').addEventListener('click', finalizarCompra);
+            vaciarCarritoPanelBtn.addEventListener('click', limpiarCarrito);
+            procederAlPagoBtn.addEventListener('click', showCheckoutForm);
+
+            listaCarritoPanel.addEventListener('click', (event) => {
+                if (event.target.classList.contains('remove-from-cart')) {
+                    const productIdToRemove = event.target.dataset.id;
+                    eliminarDelCarrito(productIdToRemove);
+                }
+            });
+
+            datosClienteForm.addEventListener('submit', showOrderSummary);
+            volverAlCarritoBtn.addEventListener('click', () => {
+                carritoView.classList.remove('hidden');
+                checkoutFormView.classList.add('hidden');
+            });
+
+            editarDatosBtn.addEventListener('click', showCheckoutForm);
+            finalizarPedidoWhatsappBtn.addEventListener('click', generateWhatsAppMessage);
 
             cerrarModalBtn.addEventListener('click', cerrarModal);
             btnVolverTienda.addEventListener('click', cerrarModal);
@@ -274,7 +445,7 @@
             actualizarCarritoUI();
         });
     </script>
-</body>
+    </body>
 </html>
 
 
