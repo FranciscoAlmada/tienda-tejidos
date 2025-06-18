@@ -1,3 +1,21 @@
+:root {
+    --color-principal-claro: #d8b4a0; 
+    --color-principal-oscuro: #7a5c4d; 
+    --color-acento: #d17b88; 
+    --color-acento-hover: #b85f66; 
+    --color-hover-nav: #d79c7c; 
+
+    --color-fondo-body: #fdfaf6;
+    --color-texto-principal: #443b32;
+    --color-texto-secundario: #5a4a3b; 
+    --color-fondo-claro: #fff; 
+    --color-borde-suave: #e4dcd4; 
+
+    --toast-success: #2ecc71;
+    --toast-error: #e74c3c;
+    --toast-info: #3498db;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,14 +23,14 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #fdfaf6;
-    color: #443b32;
+    font-family: 'Poppins', sans-serif; /
+    background-color: var(--color-fondo-body);
+    color: var(--color-texto-principal);
     line-height: 1.6;
 }
 
 header {
-    background-color: #d8b4a0; /* Tu color de cabecera */
+    background-color: var(--color-principal-claro);
     color: #fff;
     padding: 30px 20px;
     text-align: center;
@@ -25,7 +43,7 @@ header h1 {
 }
 
 nav {
-    background-color: #7a5c4d; /* Tu color de navegación */
+    background-color: var(--color-principal-oscuro);
     padding: 15px 0;
     text-align: center;
 }
@@ -40,13 +58,37 @@ nav a {
 }
 
 nav a:hover {
-    color: #d79c7c; /* Tu color de hover de navegación */
+    color: var(--color-hover-nav);
+}
+
+.hero {
+    background: url('img/hero.jpg') center/cover no-repeat; 
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 main {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--color-principal-oscuro);
 }
 
 .productos {
@@ -56,8 +98,8 @@ main {
 }
 
 .producto {
-    background-color: #fff;
-    border: 1px solid #e4dcd4;
+    background-color: var(--color-fondo-claro);
+    border: 1px solid var(--color-borde-suave);
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -84,18 +126,85 @@ main {
 }
 
 .producto h3 {
-    color: #7a5c4d; /* Tu color de título de producto */
+    color: var(--color-principal-oscuro);
     margin: 15px 0 10px;
     font-size: 1.2rem;
 }
 
 .producto p {
-    color: #5a4a3b; /* Tu color de texto de precio */
+    color: var(--color-texto-secundario);
     font-weight: 600;
+    margin-bottom: 15px;
 }
 
+.producto button,
+.producto .boton-comprar,
+.producto .boton-whatsapp {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto button { 
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+}
+
+.producto button:hover {
+    background-color: var(--color-acento-hover);
+}
+
+.producto .boton-comprar {
+    background-color: #3483fa; 
+    color: white;
+}
+
+.producto .boton-comprar:hover {
+    background-color: #2968c8;
+}
+
+.producto .boton-whatsapp {
+    background-color: #25d366; 
+    color: white;
+}
+
+.producto .boton-whatsapp:hover {
+    background-color: #1ebe5b;
+}
+
+#quienes-somos {
+    padding: 40px 20px;
+    background-color: var(--color-fondo-claro);
+    text-align: center;
+    border-top: 1px solid var(--color-borde-suave);
+    margin-top: 60px;
+}
+
+#quienes-somos h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--color-principal-oscuro);
+}
+
+#quienes-somos p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-texto-principal);
+}
+
+
 footer {
-    background-color: #7a5c4d; /* Tu color de footer */
+    background-color: var(--color-principal-oscuro);
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -103,7 +212,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
@@ -147,138 +255,139 @@ footer {
     }
 }
 
-/* === Estilos del carrito flotante y lateral === */
-#btn-carrito {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #d17b88; /* Color de tu botón carrito flotante */
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1001;
-    transition: background-color 0.3s ease;
-}
 
-#btn-carrito:hover {
-    background-color: #b85f66; /* Color de hover de tu botón carrito flotante */
-}
-
-.carrito-panel {
-    position: fixed;
-    top: 0;
-    right: -350px; /* afuera de la pantalla */
-    width: 350px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+#detalle-carrito {
+    margin-bottom: 40px;
+    border: 1px solid var(--color-borde-suave);
     padding: 20px;
-    box-sizing: border-box;
-    transition: right 0.3s ease;
-    z-index: 1002;
-    overflow-y: auto;
+    border-radius: 10px;
+    background-color: var(--color-fondo-claro);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.carrito-panel.mostrar {
-    right: 0;
-}
-
-.carrito-panel h2 {
-    font-size: 1.5rem;
+#detalle-carrito h2 {
+    text-align: center;
     margin-bottom: 20px;
-    color: #7a5c4d; /* Tu color de título de carrito */
+    color: var(--color-principal-oscuro);
 }
 
-.carrito-panel ul {
+#lista-carrito {
     list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+    padding-left: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 15px;
 }
 
-.carrito-panel li {
-    margin-bottom: 10px;
+#lista-carrito li {
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    color: #4a3f35;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--color-texto-principal);
 }
 
-.carrito-panel li button {
-    font-weight: bold;
-    border: none;
-    background: none;
-    color: #d17b88; /* Color del botón de eliminar */
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 1.1rem;
-    padding: 0;
-    line-height: 1;
-}
-
-.carrito-panel button:not(#cerrar-carrito) {
-    width: 100%;
-    padding: 10px;
-    background-color: #d17b88; /* Color de botones del carrito (Vaciar, Comprar) */
-    color: white;
-    border: none;
+#total {
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: block;
     margin-top: 10px;
-    border-radius: 5px;
+    color: var(--color-principal-oscuro);
+}
+
+#detalle-carrito button {
+    background-color: var(--color-acento);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+#detalle-carrito button:hover {
+    background-color: var(--color-acento-hover);
+}
+
+
+#paginacion {
+    text-align: center;
+    margin: 30px 0;
+}
+
+#paginacion button {
+    background-color: var(--color-acento);
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.carrito-panel button:not(#cerrar-carrito):hover {
-    background-color: #b85f66; /* Color de hover de botones del carrito */
+#paginacion button:hover {
+    background-color: var(--color-acento-hover);
 }
 
-#cerrar-carrito {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #333;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    cursor: pointer;
+#paginacion button.active {
+    background-color: var(--color-principal-oscuro); 
 }
 
-.overlay {
+#message-container {
     position: fixed;
-    top: 0;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-out;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+#message-container.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#message-container[data-type="success"] {
+    background-color: var(--toast-success);
+}
+#message-container[data-type="error"] {
+    background-color: var(--toast-error);
+}
+#message-container[data-type="info"] {
+    background-color: var(--toast-info);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
     left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 1000;
-    display: none;
-}
-
-.overlay.mostrar {
-    display: block;
-}
-
-/* === Estilos del Modal de Compra (Actualizados para tu paleta) === */
-.modal {
-    display: none; /* Oculto por defecto, JavaScript lo mostrará */
-    position: fixed; /* Posición fija para cubrir toda la pantalla */
-    z-index: 2000; /* Z-index alto para que esté por encima de todo */
-    left: 0;
-    top: 0;
-    width: 100%; /* Ancho completo */
-    height: 100%; /* Alto completo */
-    overflow: auto; /* Habilitar scroll si el contenido es demasiado grande */
-    background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente oscuro */
-    display: flex; /* Usamos flexbox para centrar contenido */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0; /* Para la animación de aparición */
-    transition: opacity 0.3s ease-out; /* Transición para la opacidad */
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }
 
 .modal.show {
@@ -286,17 +395,17 @@ footer {
 }
 
 .modal-contenido {
-    background-color: #fefefe; /* Fondo del contenido del modal */
+    background-color: var(--color-fondo-claro);
     padding: 30px;
-    border: 1px solid #e4dcd4; /* Borde suave */
-    width: 80%; /* Ancho del modal */
-    max-width: 500px; /* Ancho máximo para pantallas grandes */
-    border-radius: 12px; /* Borde más redondeado */
+    border: 1px solid var(--color-borde-suave);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative; /* Para posicionar el botón de cerrar */
+    position: relative;
     text-align: center;
-    transform: translateY(-50px); /* Para la animación de deslizamiento */
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición para el contenido */
+    transform: translateY(-50px);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
 .modal.show .modal-contenido {
@@ -305,19 +414,19 @@ footer {
 }
 
 .modal-contenido h2 {
-    color: #7a5c4d; /* Tu color principal para títulos */
+    color: var(--color-principal-oscuro);
     margin-top: 0;
     margin-bottom: 20px;
 }
 
 .modal-contenido .detalle {
     margin-bottom: 20px;
-    text-align: left; /* Alinea el texto del resumen a la izquierda */
+    text-align: left;
     font-size: 1.1em;
     line-height: 1.6;
-    max-height: 200px; /* Para que no sea demasiado largo */
-    overflow-y: auto; /* Si el resumen es largo, que tenga scroll */
-    padding-right: 10px; /* Espacio para el scrollbar */
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .modal-contenido .detalle p {
@@ -325,10 +434,9 @@ footer {
 }
 
 .modal-contenido .detalle strong {
-    color: #d17b88; /* Color para resaltar el total/precios en el resumen */
+    color: var(--color-acento);
 }
 
-/* Botón de cerrar (la 'X') */
 .cerrar {
     color: #aaa;
     position: absolute;
@@ -346,9 +454,8 @@ footer {
     text-decoration: none;
 }
 
-/* Botón "Volver a la tienda" */
 .btn-volver {
-    background-color: #d17b88; /* Tu color principal para botones */
+    background-color: var(--color-acento);
     color: white;
     padding: 12px 20px;
     border: none;
@@ -359,38 +466,186 @@ footer {
 }
 
 .btn-volver:hover {
-    background-color: #b85f66; /* Un tono más oscuro de tu color principal */
+    background-color: var(--color-acento-hover);
 }
 
-/* === Estilos para el mensaje flotante (Toast Notification) === */
-#message-container {
+
+.contacto-form-container {
+    background-color: var(--color-fondo-claro);
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contacto-form-container:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-contacto label {
+    font-weight: 500;
+    color: var(--color-texto-secundario);
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    color: var(--color-texto-principal);
+}
+
+.formulario-contacto button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+}
+
+.formulario-contacto button:hover {
+    background-color: var(--color-acento-hover);
+}
+
+#btn-carrito {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #d17b88; /* Color de tu botón carrito flotante para el éxito */
+    background-color: var(--color-acento); 
     color: white;
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: block; /* Mantenemos 'block' para la visibilidad inicial */
-    opacity: 0; /* Oculto por defecto con opacidad */
-    transition: opacity 0.5s ease-in-out, transform 0.3s ease-out;
-    transform: translateY(20px); 
-    pointer-events: none; 
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1001; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-#message-container.show {
-    opacity: 1;
-    transform: translateY(0); /* Sube a su posición final */
-    pointer-events: auto; /* Permite interacciones cuando está visible */
+
+#btn-carrito:hover {
+    background-color: var(--color-acento-hover);
+    transform: translateY(-3px);
 }
-/* Colores para diferentes tipos de mensajes */
-#message-container[data-type="success"] {
-    background-color: #2ecc71; /* Verde para éxito */
+
+.carrito-panel {
+    position: fixed;
+    top: 0;
+    right: -350px; 
+    width: 350px;
+    height: 100vh;
+    background: var(--color-fondo-claro);
+    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease; 
+    z-index: 1002;
+    overflow-y: auto; 
 }
-#message-container[data-type="error"] {
-    background-color: #e74c3c; /* Rojo para error */
+
+.carrito-panel.mostrar {
+    right: 0; 
 }
-#message-container[data-type="info"] {
-    background-color: #3498db; /* Azul para información */
+
+.carrito-panel h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--color-principal-oscuro);
+}
+
+.carrito-panel ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.carrito-panel li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: var(--color-texto-principal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carrito-panel li button { 
+    font-weight: bold;
+    border: none;
+    background: none;
+    color: var(--color-acento);
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.carrito-panel li button:hover {
+    color: var(--color-acento-hover);
+}
+
+.carrito-panel button:not(#cerrar-carrito) { 
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-acento);
+    color: white;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-panel button:not(#cerrar-carrito):hover {
+    background-color: var(--color-acento-hover);
+}
+
+#cerrar-carrito { 
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333; 
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#cerrar-carrito:hover {
+    color: var(--color-acento);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000; 
+    display: none; 
+}
+
+.overlay.mostrar {
+    display: block; 
 }
