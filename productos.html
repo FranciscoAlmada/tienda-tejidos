@@ -1,560 +1,502 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Productos | Mompat Prendas y Tejidos</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Productos | Mompat Prendas y Tejidos</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papbI+6VqYVZP+t0sqC9Qy4skP7kpVjDZl2I/xR7M3AxU0Zz9v7O1EoOmr5e+f9VoPQuvP8vFJmF64cX0Zl7T6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/estilos.css" />
 
-  <link rel="stylesheet" href="css/estilos.css" />
-</head>
+    <style>
+        /* Tus estilos CSS existentes aquí */
+        :root {
+            --color-principal: #d17b88;
+            --color-secundario: #f3e5e8;
+            --gris-suave: #f8f8f8;
+            --texto: #333;
+            --fuente: 'Poppins', sans-serif;
+        }
 
-  <style>
-    :root {
-  --color-principal: #d17b88;
-  --color-secundario: #f3e5e8;
-  --gris-suave: #f8f8f8;
-  --texto: #333;
-  --fuente: 'Poppins', sans-serif;
-}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
+        header {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-    header {
-      background-color: #f8f8f8;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
+        header img {
+            width: 150px;
+            margin-bottom: 10px;
+        }
 
-    header img {
-      width: 150px;
-      margin-bottom: 10px;
-    }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
+        nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-    nav {
-      background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-      padding: 10px 0;
-    }
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin: 0 20px;
+            font-weight: 500;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #555;
-      margin: 0 20px;
-      font-weight: 500;
-    }
+        nav a:hover {
+            color: var(--color-principal); /* Usando la variable CSS */
+        }
 
-    nav a:hover {
-      color: #d17b88;
-    }
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-    main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+        h2 {
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
 
-    h2 {
-      text-align: center;
-      font-weight: 500;
-      margin-bottom: 30px;
-    }
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
+        .producto {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            background-color: #fafafa;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .producto {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      background-color: #fafafa;
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
-    .producto:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
+        .producto img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background-color: #fff;
+        }
 
-    .producto img {
-      width: 100%;
-      height: 250px;
-      object-fit: contain;
-      background-color: #fff;
-    }
+        .producto h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 5px;
+        }
 
-    .producto h3 {
-      font-size: 1.2rem;
-      margin: 15px 0 5px;
-    }
+        .producto p {
+            color: #777;
+            margin-bottom: 15px;
+        }
 
-    .producto p {
-      color: #777;
-      margin-bottom: 15px;
-    }
+        #detalle-carrito {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fafafa;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    #detalle-carrito {
-      margin-bottom: 40px;
-      border: 1px solid #ddd;
-      padding: 20px;
-      border-radius: 10px;
-      background-color: #fafafa;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+        #lista-carrito {
+            list-style: none;
+            padding-left: 0;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+        }
 
-    #lista-carrito {
-      list-style: none;
-      padding-left: 0;
-      max-height: 200px;
-      overflow-y: auto;
-      margin-bottom: 15px;
-    }
+        #lista-carrito li {
+            padding: 8px 0; /* Aumentado el padding para mejor legibilidad */
+            border-bottom: 1px solid #eee;
+            display: flex; /* Para alinear el texto y el botón X */
+            justify-content: space-between; /* Para separar el texto y el botón */
+            align-items: center;
+        }
 
-    #lista-carrito li {
-      padding: 5px 0;
-      border-bottom: 1px solid #eee;
-    }
+        #total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: block; /* Para que ocupe su propia línea */
+            margin-top: 10px; /* Separación del total de la lista */
+        }
 
-    #total {
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
+        #detalle-carrito button {
+            background-color: var(--color-principal); /* Usando la variable CSS */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
 
-    #detalle-carrito button {
-      background-color: #d17b88;
-      border: none;
-      padding: 10px 20px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-      margin: 5px;
-    }
+        #detalle-carrito button:hover {
+            background-color: #b55e65;
+        }
 
-    #detalle-carrito button:hover {
-      background-color: #b55e65;
-    }
+        .boton-comprar, .boton-whatsapp {
+            display: inline-block;
+            margin: 5px 0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            width: fit-content;
+        }
 
-    .boton-comprar, .boton-whatsapp {
-      display: inline-block;
-      margin: 5px 0;
-      padding: 10px 15px;
-      border-radius: 6px;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-size: 0.9rem;
-      width: fit-content;
-    }
+        .boton-comprar {
+            background-color: #3483fa;
+        }
 
-    .boton-comprar {
-      background-color: #3483fa;
-    }
+        .boton-comprar:hover {
+            background-color: #2968c8;
+        }
 
-    .boton-comprar:hover {
-      background-color: #2968c8;
-    }
+        .boton-whatsapp {
+            background-color: #25d366;
+            margin-left: 10px;
+        }
 
-    .boton-whatsapp {
-      background-color: #25d366;
-      margin-left: 10px;
-    }
+        .boton-whatsapp:hover {
+            background-color: #1ebe5b;
+        }
 
-    .boton-whatsapp:hover {
-      background-color: #1ebe5b;
-    }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 60px;
+            border-top: 1px solid #ddd;
+        }
 
-    footer {
-      background-color: #f8f8f8;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #999;
-      margin-top: 60px;
-      border-top: 1px solid #ddd;
-    }
+        #paginacion {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-    /* Estilos paginación */
-    #paginacion {
-      text-align: center;
-      margin: 30px 0;
-    }
+        #paginacion button {
+            background-color: var(--color-principal);
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-    #paginacion button {
-      background-color: #d17b88;
-      border: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+        #paginacion button:hover {
+            background-color: #b55e65;
+        }
 
-    #paginacion button:hover {
-      background-color: #b55e65;
-    }
+        #paginacion button.active {
+            background-color: #2968c8;
+        }
 
-    #paginacion button.active {
-      background-color: #2968c8;
-    }
-  </style>
+        /* Estilos para el mensaje flotante */
+        #message-container {
+            position: fixed;
+            bottom: 20px; /* Cambiado a abajo para que no choque con el logo */
+            right: 20px;
+            background-color: var(--color-principal); /* Usamos el color principal */
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px; /* Un poco más de borde */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+            z-index: 1000;
+            display: none; /* Oculto por defecto */
+            opacity: 0; /* Para la transición */
+            transition: opacity 0.5s ease-in-out, transform 0.3s ease-out; /* Añadida transición para el transform */
+            transform: translateY(20px); /* Empieza un poco más abajo */
+        }
+        #message-container.show {
+            opacity: 1;
+            transform: translateY(0); /* Sube a su posición final */
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <img src="img/logo.png" alt="Logo Mompat" />
-    <h1>Mompat Prendas y Tejidos</h1>
-  </header>
+    <header>
+        <img src="img/logo.png" alt="Logo Mompat" />
+        <h1>Mompat Prendas y Tejidos</h1>
+    </header>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="productos.html">Productos</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="#detalle-carrito" style="margin-left: 20px; font-weight: bold;">🛒 Carrito (<span id="contador">0</span>)</a>
-  </nav>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="#detalle-carrito" style="margin-left: 20px; font-weight: bold;">🛒 Carrito (<span id="contador">0</span>)</a>
+    </nav>
 
-  <main>
-    <h2>Nuestros Productos</h2>
+    <main>
+        <h2>Nuestros Productos</h2>
 
-    <section id="detalle-carrito">
-      <h2>Tu carrito</h2>
-      <ul id="lista-carrito"></ul>
-      <p>Total: $<span id="total">0</span></p>
-      <button onclick="limpiarCarrito()">Vaciar carrito</button>
-      <button onclick="finalizarCompra()">Comprar</button>
-    </section>
+        <div id="message-container">
+            <span id="message-text"></span>
+        </div>
 
-    <section class="productos" id="productos-lista">
-      <!-- Productos con clase paginada -->
-      <div class="producto pagina-1">
-        <img src="img/tejidoproductos1.jpg" alt="Mantel tejido a mano" />
-        <h3>Mantel tejido a mano</h3>
-        <p>$14.500</p>
-        <button onclick="agregarAlCarrito('Mantel tejido a mano', 14500)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
+        <section id="detalle-carrito">
+            <h2>Tu carrito</h2>
+            <ul id="lista-carrito"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <button id="vaciar-carrito">Vaciar carrito</button>
+            <button id="finalizar-compra">Comprar</button>
+        </section>
 
-      <div class="producto pagina-1">
-        <img src="img/tejidoproductos2.jpg" alt="Saco para perros" />
-        <h3>Saco para perros</h3>
-        <p>$13.200</p>
-        <button onclick="agregarAlCarrito('Saco para perros', 13200)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_bufanda" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
+        <section class="productos" id="productos-lista">
+            <div class="producto pagina-1">
+                <img src="img/tejidoproductos1.jpg" alt="Mantel tejido a mano" />
+                <h3>Mantel tejido a mano</h3>
+                <p>$14.500</p>
+                <button class="add-to-cart" data-id="mantel-01" data-name="Mantel tejido a mano" data-price="14500">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_chal" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
 
-      <div class="producto pagina-1">
-        <img src="img/tejidoproducto3.jpg" alt="Gorro artesanal" />
-        <h3>Individual de tela con borde al crochet</h3>
-        <p>$10.000</p>
-        <button onclick="agregarAlCarrito('Individual de tela con borde al crochet', 10000)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_gorro" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
+            <div class="producto pagina-1">
+                <img src="img/tejidoproductos2.jpg" alt="Saco para perros" />
+                <h3>Saco para perros</h3>
+                <p>$13.200</p>
+                <button class="add-to-cart" data-id="saco-perro-01" data-name="Saco para perros" data-price="13200">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_bufanda" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
 
-      <div class="producto pagina-2" style="display:none;">
-        <img src="img/tejidoproducto4.jpg" alt="Saco" />
-        <h3>Saco</h3>
-        <p>$45.000</p>
-        <button onclick="agregarAlCarrito('Saco', 45000)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_poncho" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
+            <div class="producto pagina-1">
+                <img src="img/tejidoproducto3.jpg" alt="Gorro artesanal" />
+                <h3>Individual de tela con borde al crochet</h3>
+                <p>$10.000</p>
+                <button class="add-to-cart" data-id="individual-01" data-name="Individual de tela con borde al crochet" data-price="10000">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_gorro" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
 
-      <div class="producto pagina-2" style="display:none;">
-        <img src="img/tejido5.jpg" alt="Camino de mesa tejido" />
-        <h3>Camino de mesa tejido</h3>
-        <p>$10.900</p>
-        <button onclick="agregarAlCarrito('Camino de mesa tejido', 10900)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_camino" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
+            <div class="producto pagina-2" style="display:none;">
+                <img src="img/tejidoproducto4.jpg" alt="Saco" />
+                <h3>Saco</h3>
+                <p>$45.000</p>
+                <button class="add-to-cart" data-id="saco-01" data-name="Saco" data-price="45000">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_poncho" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
 
-      <div class="producto pagina-2" style="display:none;">
-        <img src="img/tejido6.jpg" alt="Bolso artesanal" />
-        <h3>Bolso artesanal</h3>
-        <p>$15.700</p>
-        <button onclick="agregarAlCarrito('Bolso artesanal', 15700)">Agregar al carrito</button><br><br>
-        <a href="https://mpago.la/tu_link_bolso" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
-        <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
-      </div>
-    </section>
+            <div class="producto pagina-2" style="display:none;">
+                <img src="img/tejido5.jpg" alt="Camino de mesa tejido" />
+                <h3>Camino de mesa tejido</h3>
+                <p>$10.900</p>
+                <button class="add-to-cart" data-id="camino-mesa-01" data-name="Camino de mesa tejido" data-price="10900">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_camino" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
 
-    <div id="paginacion"></div>
-  </main>
+            <div class="producto pagina-2" style="display:none;">
+                <img src="img/tejido6.jpg" alt="Bolso artesanal" />
+                <h3>Bolso artesanal</h3>
+                <p>$15.700</p>
+                <button class="add-to-cart" data-id="bolso-01" data-name="Bolso artesanal" data-price="15700">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_bolso" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá personalizada por WhatsApp</a>
+            </div>
+        </section>
 
-  <footer>
-    &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
-  </footer>
+        <div id="paginacion"></div>
+    </main>
 
-  <script>
-    // --- Carrito ---
-    let carrito = [];
+    <footer>
+        &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
+    </footer>
 
-    function actualizarCarrito() {
-      const lista = document.getElementById('lista-carrito');
-      const contador = document.getElementById('contador');
-      const totalElem = document.getElementById('total');
+    <script>
+        let carrito = []; // Array para almacenar los productos en el carrito
 
-      lista.innerHTML = '';
-      let total = 0;
+        // --- FUNCIONES DEL CARRITO ---
+        function actualizarCarritoUI() {
+            const listaCarrito = document.getElementById('lista-carrito');
+            const contadorCarrito = document.getElementById('contador');
+            const totalCarrito = document.getElementById('total');
 
-      carrito.forEach((producto, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-AR')}`;
+            listaCarrito.innerHTML = ''; // Limpiamos la lista actual
+            let total = 0;
 
-        const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = 'X';
-        btnEliminar.style.marginLeft = '10px';
-        btnEliminar.style.background = 'none';
-        btnEliminar.style.border = 'none';
-        btnEliminar.style.color = '#d17b88';
-        btnEliminar.style.cursor = 'pointer';
+            if (carrito.length === 0) {
+                listaCarrito.innerHTML = '<li>Tu carrito está vacío.</li>';
+            } else {
+                carrito.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${item.name} x ${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-AR')}</span>
+                        <button class="remove-from-cart" data-index="${index}">❌</button>
+                    `;
+                    listaCarrito.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+            }
 
-        btnEliminar.onclick = () => {
-          carrito.splice(index, 1);
-          actualizarCarrito();
-        };
+            contadorCarrito.textContent = carrito.reduce((acc, item) => acc + item.quantity, 0); 
+            totalCarrito.textContent = total.toLocaleString('es-AR');
 
-        li.appendChild(btnEliminar);
-        lista.appendChild(li);
-        total += producto.precio;
-      });
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const itemIndex = parseInt(event.target.dataset.index);
+                    eliminarDelCarrito(itemIndex);
+                });
+            });
+        }
 
-      contador.textContent = carrito.length;
-      totalElem.textContent = total.toLocaleString('es-AR');
-    }
+        function agregarAlCarrito(productId, productName, productPrice) {
+            const existingItem = carrito.find(item => item.id === productId);
 
-    function agregarAlCarrito(nombre, precio) {
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    }
+            if (existingItem) {
+                existingItem.quantity++; 
+                showMessage(`Se añadió otra unidad de "${productName}".`, 'success');
+            } else {
+                carrito.push({ id: productId, name: productName, price: productPrice, quantity: 1 }); 
+                showMessage(`"${productName}" fue agregado al carrito.`, 'success');
+            }
+            actualizarCarritoUI(); 
+        }
 
-    function limpiarCarrito() {
-      carrito = [];
-      actualizarCarrito();
-      alert('Carrito vaciado correctamente.');
-    }
+        function eliminarDelCarrito(index) {
+            const item = carrito[index];
+            if (item.quantity > 1) {
+                item.quantity--; 
+                showMessage(`Una unidad de "${item.name}" fue eliminada.`, 'info');
+            } else {
+                carrito.splice(index, 1); 
+                showMessage(`"${item.name}" fue eliminado del carrito.`, 'info');
+            }
+            actualizarCarritoUI();
+        }
 
-    function finalizarCompra() {
-      if (carrito.length === 0) {
-        alert('El carrito está vacío.');
-        return;
-      }
+        function limpiarCarrito() {
+            if (carrito.length === 0) {
+                showMessage('El carrito ya está vacío.', 'error');
+                return;
+            }
 
-      let mensaje = '¡Gracias por tu compra!\n\nProductos:\n';
-      carrito.forEach(p => {
-        mensaje += `- ${p.nombre}: $${p.precio.toLocaleString('es-AR')}\n`;
-      });
+            if (confirm('¿Estás seguro de que querés vaciar el carrito?')) {
+                carrito = [];
+                actualizarCarritoUI();
+                showMessage('Carrito vaciado correctamente.', 'success');
+            }
+        }
 
-      const total = carrito.reduce((acc, p) => acc + p.precio, 0);
-      mensaje += `\nTotal: $${total.toLocaleString('es-AR')}`;
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                showMessage('Tu carrito está vacío. ¡Añade algunos productos para comprar!', 'error');
+                return;
+            }
 
-      alert(mensaje);
-      limpiarCarrito();
-    }
+            let mensajeResumen = '🧺 ¡Gracias por tu compra!\n\nProductos:\n';
+            carrito.forEach(p => {
+                mensajeResumen += `- ${p.name} x ${p.quantity}: $${(p.price * p.quantity).toLocaleString('es-AR')}\n`;
+            });
 
-    // --- Paginación ---
-    const productosPorPagina = 3;
-    let paginaActual = 1;
+            const total = carrito.reduce((acc, p) => acc + (p.price * p.quantity), 0);
+            mensajeResumen += `\nTotal: $${total.toLocaleString('es-AR')}`;
 
-    const productos = document.querySelectorAll('.producto');
-    const totalPaginas = Math.ceil(productos.length / productosPorPagina);
+            alert(mensajeResumen); 
+            carrito = []; 
+            actualizarCarritoUI();
+        }
 
-    const paginacionDiv = document.getElementById('paginacion');
+        function showMessage(text, type = 'success') {
+            const messageContainer = document.getElementById('message-container');
+            const messageText = document.getElementById('message-text');
 
-    function mostrarPagina(pagina) {
-      paginaActual = pagina;
+            messageText.textContent = text;
+            messageContainer.style.backgroundColor = type === 'error' ? '#e74c3c' : (type === 'info' ? '#3498db' : '#2ecc71'); 
+            messageContainer.classList.add('show'); 
 
-      productos.forEach(producto => producto.style.display = 'none');
+            setTimeout(() => {
+                messageContainer.classList.remove('show'); 
+            }, 3000); 
+        }
 
-      // Mostrar productos de la página
-      document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
+        const productosPorPagina = 3;
+        let paginaActual = 1;
+        const productosElements = document.querySelectorAll('.producto');
+        const totalPaginas = Math.ceil(productosElements.length / productosPorPagina);
+        const paginacionDiv = document.getElementById('paginacion');
 
-      // Actualizar botones
-      const botones = paginacionDiv.querySelectorAll('button');
-      botones.forEach(btn => btn.classList.remove('active'));
-      if (botones[pagina - 1]) botones[pagina - 1].classList.add('active');
+        function mostrarPagina(pagina) {
+            paginaActual = pagina;
+            productosElements.forEach(producto => producto.style.display = 'none'); 
 
-      // Hacer scroll arriba de productos (opcional)
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+            document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
 
-    function crearPaginacion() {
-      for (let i = 1; i <= totalPaginas; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        if(i === paginaActual) btn.classList.add('active');
-        btn.onclick = () => mostrarPagina(i);
-        paginacionDiv.appendChild(btn);
-      }
-    }
+            const botonesPaginacion = paginacionDiv.querySelectorAll('button');
+            botonesPaginacion.forEach(btn => btn.classList.remove('active'));
+            if (botonesPaginacion[pagina - 1]) botonesPaginacion[pagina - 1].classList.add('active');
 
-    crearPaginacion();
-    mostrarPagina(1);
-  </script>
-  <script>
-  <!-- El resto del código HEAD permanece igual -->
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        }
 
-<!-- Justo antes de cerrar el <body>, reemplaza todo el <script> anterior por este: -->
+        function crearPaginacion() {
+            paginacionDiv.innerHTML = ''; 
+            for (let i = 1; i <= totalPaginas; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                if (i === paginaActual) btn.classList.add('active');
+                btn.addEventListener('click', () => mostrarPagina(i)); 
+                paginacionDiv.appendChild(btn);
+            }
+        }
 
-<script>
-  let carrito = [];
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const productId = event.target.dataset.id;
+                    const productName = event.target.dataset.name;
+                    const productPrice = parseFloat(event.target.dataset.price);
+                    agregarAlCarrito(productId, productName, productPrice);
+                });
+            });
 
-  function actualizarCarrito() {
-    const lista = document.getElementById('lista-carrito');
-    const contador = document.getElementById('contador');
-    const totalElem = document.getElementById('total');
+            document.getElementById('vaciar-carrito').addEventListener('click', limpiarCarrito);
+            document.getElementById('finalizar-compra').addEventListener('click', finalizarCompra);
 
-    lista.innerHTML = '';
-    let total = 0;
+            actualizarCarritoUI();
 
-    carrito.forEach((producto, index) => {
-      const li = document.createElement('li');
-      li.textContent = `${producto.nombre} - $${producto.precio.toLocaleString('es-AR')}`;
+            crearPaginacion();
+            mostrarPagina(1);
+        });
 
-      const btnEliminar = document.createElement('button');
-      btnEliminar.textContent = '❌';
-      btnEliminar.style.marginLeft = '10px';
-      btnEliminar.style.background = 'none';
-      btnEliminar.style.border = 'none';
-      btnEliminar.style.color = '#d17b88';
-      btnEliminar.style.cursor = 'pointer';
-      btnEliminar.title = 'Eliminar del carrito';
-
-      btnEliminar.onclick = () => {
-        carrito.splice(index, 1);
-        actualizarCarrito();
-      };
-
-      li.appendChild(btnEliminar);
-      lista.appendChild(li);
-      total += producto.precio;
-    });
-
-    contador.textContent = carrito.length;
-    totalElem.textContent = total.toLocaleString('es-AR');
-  }
-
-  function agregarAlCarrito(nombre, precio) {
-    carrito.push({ nombre, precio });
-    actualizarCarrito();
-    mostrarMensaje(`${nombre} fue agregado al carrito.`);
-  }
-
-  function limpiarCarrito() {
-    if (carrito.length === 0) {
-      mostrarMensaje('El carrito ya está vacío.');
-      return;
-    }
-
-    if (confirm('¿Estás seguro de que querés vaciar el carrito?')) {
-      carrito = [];
-      actualizarCarrito();
-      mostrarMensaje('Carrito vaciado correctamente.');
-    }
-  }
-
-  function finalizarCompra() {
-    if (carrito.length === 0) {
-      mostrarMensaje('El carrito está vacío.');
-      return;
-    }
-
-    let mensaje = '🧺 ¡Gracias por tu compra!\n\nProductos:\n';
-    carrito.forEach(p => {
-      mensaje += `- ${p.nombre}: $${p.precio.toLocaleString('es-AR')}\n`;
-    });
-
-    const total = carrito.reduce((acc, p) => acc + p.precio, 0);
-    mensaje += `\nTotal: $${total.toLocaleString('es-AR')}`;
-
-    alert(mensaje);
-    carrito = [];
-    actualizarCarrito();
-  }
-
-  function mostrarMensaje(texto) {
-    const div = document.createElement('div');
-    div.textContent = texto;
-    div.style.position = 'fixed';
-    div.style.bottom = '20px';
-    div.style.right = '20px';
-    div.style.background = '#d17b88';
-    div.style.color = 'white';
-    div.style.padding = '10px 20px';
-    div.style.borderRadius = '8px';
-    div.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-    div.style.zIndex = '1000';
-    document.body.appendChild(div);
-
-    setTimeout(() => {
-      div.remove();
-    }, 3000);
-  }
-
-  // Paginación
-  const productosPorPagina = 3;
-  let paginaActual = 1;
-
-  const productos = document.querySelectorAll('.producto');
-  const totalPaginas = Math.ceil(productos.length / productosPorPagina);
-
-  const paginacionDiv = document.getElementById('paginacion');
-
-  function mostrarPagina(pagina) {
-    paginaActual = pagina;
-    productos.forEach(producto => producto.style.display = 'none');
-    document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
-
-    const botones = paginacionDiv.querySelectorAll('button');
-    botones.forEach(btn => btn.classList.remove('active'));
-    if (botones[pagina - 1]) botones[pagina - 1].classList.add('active');
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function crearPaginacion() {
-    for (let i = 1; i <= totalPaginas; i++) {
-      const btn = document.createElement('button');
-      btn.textContent = i;
-      if (i === paginaActual) btn.classList.add('active');
-      btn.onclick = () => mostrarPagina(i);
-      paginacionDiv.appendChild(btn);
-    }
-  }
-
-  crearPaginacion();
-  mostrarPagina(1);
-</script>
-
-
+    </script>
 </body>
 </html>
-
 
