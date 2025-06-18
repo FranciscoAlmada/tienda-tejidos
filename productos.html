@@ -9,245 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papbI+6VqYVZP+t0sqC9Qy4skP7kpVjDZl2I/xR7M3AxU0Zz9v7O1EoOmr5e+f9VoPQuvP8vFJmF64cX0Zl7T6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/estilos.css" />
 
-    <style>
-        /* Tus estilos CSS existentes aquí */
-        :root {
-            --color-principal: #d17b88;
-            --color-secundario: #f3e5e8;
-            --gris-suave: #f8f8f8;
-            --texto: #333;
-            --fuente: 'Poppins', sans-serif;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff;
-            color: #333;
-        }
-
-        header {
-            background-color: #f8f8f8;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        header img {
-            width: 150px;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        nav {
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #555;
-            margin: 0 20px;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--color-principal); /* Usando la variable CSS */
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            text-align: center;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        .productos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .producto {
-            border: 1px solid #eee;
-            border-radius: 10px;
-            background-color: #fafafa;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .producto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .producto img {
-            width: 100%;
-            height: 250px;
-            object-fit: contain;
-            background-color: #fff;
-        }
-
-        .producto h3 {
-            font-size: 1.2rem;
-            margin: 15px 0 5px;
-        }
-
-        .producto p {
-            color: #777;
-            margin-bottom: 15px;
-        }
-
-        #detalle-carrito {
-            margin-bottom: 40px;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fafafa;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #lista-carrito {
-            list-style: none;
-            padding-left: 0;
-            max-height: 200px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-
-        #lista-carrito li {
-            padding: 8px 0; /* Aumentado el padding para mejor legibilidad */
-            border-bottom: 1px solid #eee;
-            display: flex; /* Para alinear el texto y el botón X */
-            justify-content: space-between; /* Para separar el texto y el botón */
-            align-items: center;
-        }
-
-        #total {
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: block; /* Para que ocupe su propia línea */
-            margin-top: 10px; /* Separación del total de la lista */
-        }
-
-        #detalle-carrito button {
-            background-color: var(--color-principal); /* Usando la variable CSS */
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin: 5px;
-        }
-
-        #detalle-carrito button:hover {
-            background-color: #b55e65;
-        }
-
-        .boton-comprar, .boton-whatsapp {
-            display: inline-block;
-            margin: 5px 0;
-            padding: 10px 15px;
-            border-radius: 6px;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            font-size: 0.9rem;
-            width: fit-content;
-        }
-
-        .boton-comprar {
-            background-color: #3483fa;
-        }
-
-        .boton-comprar:hover {
-            background-color: #2968c8;
-        }
-
-        .boton-whatsapp {
-            background-color: #25d366;
-            margin-left: 10px;
-        }
-
-        .boton-whatsapp:hover {
-            background-color: #1ebe5b;
-        }
-
-        footer {
-            background-color: #f8f8f8;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 60px;
-            border-top: 1px solid #ddd;
-        }
-
-        #paginacion {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        #paginacion button {
-            background-color: var(--color-principal);
-            border: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #paginacion button:hover {
-            background-color: #b55e65;
-        }
-
-        #paginacion button.active {
-            background-color: #2968c8;
-        }
-
-        /* Estilos para el mensaje flotante */
-        #message-container {
-            position: fixed;
-            bottom: 20px; /* Cambiado a abajo para que no choque con el logo */
-            right: 20px;
-            background-color: var(--color-principal); /* Usamos el color principal */
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px; /* Un poco más de borde */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-            z-index: 1000;
-            display: none; /* Oculto por defecto */
-            opacity: 0; /* Para la transición */
-            transition: opacity 0.5s ease-in-out, transform 0.3s ease-out; /* Añadida transición para el transform */
-            transform: translateY(20px); /* Empieza un poco más abajo */
-        }
-        #message-container.show {
-            opacity: 1;
-            transform: translateY(0); /* Sube a su posición final */
-        }
-    </style>
-</head>
+    </head>
 
 <body>
     <header>
@@ -340,16 +102,41 @@
         &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
     </footer>
 
+    <div id="modal-compra" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <h2>¡Gracias por tu compra!</h2>
+            <div id="resumen-compra" class="detalle"></div>
+            <button onclick="cerrarModal()" class="btn-volver">Volver a la tienda</button>
+        </div>
+    </div>
+
     <script>
-        let carrito = []; // Array para almacenar los productos en el carrito
+        let carrito = []; 
 
-        // --- FUNCIONES DEL CARRITO ---
+        const listaCarrito = document.getElementById('lista-carrito');
+        const contadorCarrito = document.getElementById('contador');
+        const totalCarrito = document.getElementById('total');
+        const messageContainer = document.getElementById('message-container');
+        const messageText = document.getElementById('message-text');
+
+        const modalCompra = document.getElementById('modal-compra');
+        const resumenCompraDiv = document.getElementById('resumen-compra');
+        const cerrarModalBtn = document.getElementById('cerrar-modal');
+        const btnVolverTienda = modalCompra.querySelector('.btn-volver');
+
+        function showMessage(text, type = 'success') {
+            messageText.textContent = text;
+            messageContainer.setAttribute('data-type', type); 
+            messageContainer.classList.add('show');
+
+            setTimeout(() => {
+                messageContainer.classList.remove('show');
+            }, 3000); 
+        }
+
         function actualizarCarritoUI() {
-            const listaCarrito = document.getElementById('lista-carrito');
-            const contadorCarrito = document.getElementById('contador');
-            const totalCarrito = document.getElementById('total');
-
-            listaCarrito.innerHTML = ''; // Limpiamos la lista actual
+            listaCarrito.innerHTML = ''; 
             let total = 0;
 
             if (carrito.length === 0) {
@@ -415,36 +202,37 @@
             }
         }
 
+        function abrirModalCompra(resumenHTML) {
+            resumenCompraDiv.innerHTML = resumenHTML;
+            modalCompra.style.display = 'flex'; 
+            modalCompra.classList.add('show'); 
+        }
+
+        function cerrarModal() {
+            modalCompra.classList.remove('show');
+            setTimeout(() => {
+                modalCompra.style.display = 'none';
+            }, 300); 
+        }
+
         function finalizarCompra() {
             if (carrito.length === 0) {
                 showMessage('Tu carrito está vacío. ¡Añade algunos productos para comprar!', 'error');
                 return;
             }
 
-            let mensajeResumen = '🧺 ¡Gracias por tu compra!\n\nProductos:\n';
+            let resumenHTML = '';
             carrito.forEach(p => {
-                mensajeResumen += `- ${p.name} x ${p.quantity}: $${(p.price * p.quantity).toLocaleString('es-AR')}\n`;
+                resumenHTML += `<p>${p.name} x ${p.quantity}: <strong>$${(p.price * p.quantity).toLocaleString('es-AR')}</strong></p>`;
             });
 
             const total = carrito.reduce((acc, p) => acc + (p.price * p.quantity), 0);
-            mensajeResumen += `\nTotal: $${total.toLocaleString('es-AR')}`;
+            resumenHTML += `<p><strong>Total: $${total.toLocaleString('es-AR')}</strong></p>`;
 
-            alert(mensajeResumen); 
-            carrito = []; 
+            abrirModalCompra(resumenHTML); 
+
+            carrito = [];
             actualizarCarritoUI();
-        }
-
-        function showMessage(text, type = 'success') {
-            const messageContainer = document.getElementById('message-container');
-            const messageText = document.getElementById('message-text');
-
-            messageText.textContent = text;
-            messageContainer.style.backgroundColor = type === 'error' ? '#e74c3c' : (type === 'info' ? '#3498db' : '#2ecc71'); 
-            messageContainer.classList.add('show'); 
-
-            setTimeout(() => {
-                messageContainer.classList.remove('show'); 
-            }, 3000); 
         }
 
         const productosPorPagina = 3;
@@ -455,9 +243,11 @@
 
         function mostrarPagina(pagina) {
             paginaActual = pagina;
-            productosElements.forEach(producto => producto.style.display = 'none'); 
+            productosElements.forEach(producto => producto.style.display = 'none'); // Oculta todos
 
+          
             document.querySelectorAll(`.pagina-${pagina}`).forEach(prod => prod.style.display = 'block');
+
 
             const botonesPaginacion = paginacionDiv.querySelectorAll('button');
             botonesPaginacion.forEach(btn => btn.classList.remove('active'));
@@ -490,8 +280,17 @@
             document.getElementById('vaciar-carrito').addEventListener('click', limpiarCarrito);
             document.getElementById('finalizar-compra').addEventListener('click', finalizarCompra);
 
+            cerrarModalBtn.addEventListener('click', cerrarModal);
+            btnVolverTienda.addEventListener('click', cerrarModal);
+            window.addEventListener('click', (event) => {
+                if (event.target === modalCompra) {
+                    cerrarModal();
+                }
+            });
+
             actualizarCarritoUI();
 
+           
             crearPaginacion();
             mostrarPagina(1);
         });
@@ -499,4 +298,3 @@
     </script>
 </body>
 </html>
-
