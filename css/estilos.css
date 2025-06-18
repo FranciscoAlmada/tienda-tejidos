@@ -1,241 +1,396 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fdfaf6;
-  color: #4a3f35;
-  line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fdfaf6;
+    color: #443b32;
+    line-height: 1.6;
 }
 
 header {
-  background-color: #d8b4a0;
-  color: #fff;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: #d8b4a0; /* Tu color de cabecera */
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 nav {
-  background-color: #7a5c4d;
-  padding: 15px 0;
-  text-align: center;
+    background-color: #7a5c4d; /* Tu color de navegación */
+    padding: 15px 0;
+    text-align: center;
 }
 
 nav a {
-  text-decoration: none;
-  color: #fff;
-  margin: 0 15px;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #d79c7c;
+    color: #d79c7c; /* Tu color de hover de navegación */
 }
 
 main {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .producto {
-  background-color: #fff;
-  border: 1px solid #e4dcd4;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-  text-align: center;
+    background-color: #fff;
+    border: 1px solid #e4dcd4;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .producto:hover {
-  transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .producto img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    cursor: zoom-in;
+}
+
+.producto:hover img {
+    transform: scale(1.05);
 }
 
 .producto h3 {
-  color: #7a5c4d;
-  margin: 15px 0 10px;
-  font-size: 1.2rem;
+    color: #7a5c4d; /* Tu color de título de producto */
+    margin: 15px 0 10px;
+    font-size: 1.2rem;
 }
 
 .producto p {
-  color: #5a4a3b;
-  font-weight: 600;
+    color: #5a4a3b; /* Tu color de texto de precio */
+    font-weight: 600;
 }
 
 footer {
-  background-color: #7a5c4d;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-  font-size: 0.9rem;
+    background-color: #7a5c4d; /* Tu color de footer */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
+    header h1 {
+        font-size: 2rem;
+    }
 
-  nav a {
-    margin: 0 10px;
-    font-size: 0.9rem;
-  }
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
 
-  .producto img {
-    height: 200px;
-  }
+    .producto img {
+        height: 200px;
+    }
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 1.5rem;
-  }
+    header h1 {
+        font-size: 1.5rem;
+    }
 
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
 
-  main {
-    padding: 20px 10px;
-  }
+    main {
+        padding: 20px 10px;
+    }
 
-  .productos {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+    .productos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
-  .producto img {
-    height: 180px;
-  }
+    .producto img {
+        height: 180px;
+    }
 
-  .producto h3 {
-    font-size: 1.1rem;
-  }
+    .producto h3 {
+        font-size: 1.1rem;
+    }
 }
 
 /* === Estilos del carrito flotante y lateral === */
 #btn-carrito {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #d17b88;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  z-index: 1001;
-  transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d17b88; /* Color de tu botón carrito flotante */
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: background-color 0.3s ease;
 }
 
 #btn-carrito:hover {
-  background-color: #b85f66;
+    background-color: #b85f66; /* Color de hover de tu botón carrito flotante */
 }
 
 .carrito-panel {
-  position: fixed;
-  top: 0;
-  right: -400px;
-  width: 300px;
-  height: 100%;
-  background-color: #fff;
-  border-left: 2px solid #d8b4a0;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  overflow-y: auto;
-  transition: right 0.3s ease;
-  z-index: 1002;
+    position: fixed;
+    top: 0;
+    right: -350px; /* afuera de la pantalla */
+    width: 350px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease;
+    z-index: 1002;
+    overflow-y: auto;
 }
 
 .carrito-panel.mostrar {
-  right: 0;
+    right: 0;
 }
 
 .carrito-panel h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #7a5c4d;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #7a5c4d; /* Tu color de título de carrito */
 }
 
 .carrito-panel ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
 .carrito-panel li {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  color: #4a3f35;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    color: #4a3f35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.carrito-panel button {
-  width: 100%;
-  padding: 10px;
-  background-color: #d17b88;
-  color: white;
-  border: none;
-  margin-top: 10px;
-  border-radius: 5px;
-  cursor: pointer;
+.carrito-panel li button {
+    font-weight: bold;
+    border: none;
+    background: none;
+    color: #d17b88; /* Color del botón de eliminar */
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1;
 }
 
-.carrito-panel button:hover {
-  background-color: #b85f66;
+.carrito-panel button:not(#cerrar-carrito) {
+    width: 100%;
+    padding: 10px;
+    background-color: #d17b88; /* Color de botones del carrito (Vaciar, Comprar) */
+    color: white;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carrito-panel button:not(#cerrar-carrito):hover {
+    background-color: #b85f66; /* Color de hover de botones del carrito */
 }
 
 #cerrar-carrito {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #333;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  z-index: 1000;
-  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
 }
 
 .overlay.mostrar {
-  display: block;
+    display: block;
+}
+
+/* === Estilos del Modal de Compra (Actualizados para tu paleta) === */
+.modal {
+    display: none; /* Oculto por defecto, JavaScript lo mostrará */
+    position: fixed; /* Posición fija para cubrir toda la pantalla */
+    z-index: 2000; /* Z-index alto para que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilitar scroll si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente oscuro */
+    display: flex; /* Usamos flexbox para centrar contenido */
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Para la animación de aparición */
+    transition: opacity 0.3s ease-out; /* Transición para la opacidad */
+}
+
+.modal.show {
+    opacity: 1;
+}
+
+.modal-contenido {
+    background-color: #fefefe; /* Fondo del contenido del modal */
+    padding: 30px;
+    border: 1px solid #e4dcd4; /* Borde suave */
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo para pantallas grandes */
+    border-radius: 12px; /* Borde más redondeado */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* Para posicionar el botón de cerrar */
+    text-align: center;
+    transform: translateY(-50px); /* Para la animación de deslizamiento */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición para el contenido */
+}
+
+.modal.show .modal-contenido {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.modal-contenido h2 {
+    color: #7a5c4d; /* Tu color principal para títulos */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal-contenido .detalle {
+    margin-bottom: 20px;
+    text-align: left; /* Alinea el texto del resumen a la izquierda */
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-height: 200px; /* Para que no sea demasiado largo */
+    overflow-y: auto; /* Si el resumen es largo, que tenga scroll */
+    padding-right: 10px; /* Espacio para el scrollbar */
+}
+
+.modal-contenido .detalle p {
+    margin: 5px 0;
+}
+
+.modal-contenido .detalle strong {
+    color: #d17b88; /* Color para resaltar el total/precios en el resumen */
+}
+
+/* Botón de cerrar (la 'X') */
+.cerrar {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Botón "Volver a la tienda" */
+.btn-volver {
+    background-color: #d17b88; /* Tu color principal para botones */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #b85f66; /* Un tono más oscuro de tu color principal */
+}
+
+/* === Estilos para el mensaje flotante (Toast Notification) === */
+#message-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d17b88; /* Color de tu botón carrito flotante para el éxito */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: block; /* Mantenemos 'block' para la visibilidad inicial */
+    opacity: 0; /* Oculto por defecto con opacidad */
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-out;
+    transform: translateY(20px); 
+    pointer-events: none; 
+}
+#message-container.show {
+    opacity: 1;
+    transform: translateY(0); /* Sube a su posición final */
+    pointer-events: auto; /* Permite interacciones cuando está visible */
+}
+/* Colores para diferentes tipos de mensajes */
+#message-container[data-type="success"] {
+    background-color: #2ecc71; /* Verde para éxito */
+}
+#message-container[data-type="error"] {
+    background-color: #e74c3c; /* Rojo para error */
+}
+#message-container[data-type="info"] {
+    background-color: #3498db; /* Azul para información */
 }
