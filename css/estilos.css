@@ -61,7 +61,6 @@ nav a:hover {
     color: var(--color-hover-nav);
 }
 
-/* === Hero Section === */
 .hero {
     background: url('img/hero.jpg') center/cover no-repeat; 
     height: 300px;
@@ -666,4 +665,179 @@ footer {
     font-size: 0.9rem;
     margin-bottom: 10px; 
     line-height: 1.4;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left; 
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--color-texto-principal);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--color-texto-principal);
+    background-color: var(--color-fondo-claro);
+    box-sizing: border-box; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-acento);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--color-acento), 0.2);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap; 
+}
+
+.carrito-panel button { 
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; 
+}
+
+#proceder-al-pago,
+#confirmar-datos,
+#finalizar-pedido-whatsapp {
+    background-color: var(--color-principal-oscuro);
+    color: white;
+}
+
+#proceder-al-pago:hover,
+#confirmar-datos:hover,
+#finalizar-pedido-whatsapp:hover {
+    background-color: var(--color-principal-claro);
+    transform: translateY(-2px);
+}
+
+#vaciar-carrito-panel,
+#volver-al-carrito,
+#editar-datos {
+    background-color: var(--color-acento);
+    color: white;
+}
+
+#vaciar-carrito-panel:hover,
+#volver-al-carrito:hover,
+#editar-datos:hover {
+    background-color: var(--color-acento-hover);
+    transform: translateY(-2px);
+}
+
+
+#checkout-form-view h3,
+#order-summary-view h3 {
+    text-align: center;
+    color: var(--color-principal-oscuro);
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+#order-summary-view {
+    padding: 10px;
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 8px;
+    background-color: var(--color-fondo-body);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.05);
+}
+
+#resumen-contenido p {
+    margin-bottom: 8px;
+    color: var(--color-texto-principal);
+    line-height: 1.5;
+}
+
+#resumen-contenido strong {
+    color: var(--color-principal-oscuro);
+}
+
+#resumen-contenido ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    border-top: 1px solid var(--color-borde-suave);
+    padding-top: 10px;
+}
+
+#resumen-contenido ul li {
+    font-size: 0.95rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 5px;
+}
+
+#cerrar-carrito-panel {
+    background: none; 
+    border: none;
+    color: #333; 
+    font-size: 28px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0; 
+    line-height: 1; 
+    transform: none; 
+    box-shadow: none; 
+}
+
+#cerrar-carrito-panel:hover {
+    color: var(--color-acento);
+    transform: none; 
+}
+
+@media (max-width: 480px) {
+    .carrito-panel {
+        width: 100%;
+        right: -100%;
+        padding: 15px; 
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .form-buttons button {
+        flex-grow: 1; 
+        font-size: 0.9rem;
+        padding: 10px 12px;
+    }
+
+    #checkout-form-view h3,
+    #order-summary-view h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+}
+.hidden {
+    display: none !important;
 }
