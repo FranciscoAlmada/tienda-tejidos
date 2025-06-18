@@ -1,6 +1,5 @@
 let carrito = [];
 
-// Mostrar panel lateral del carrito
 function mostrarCarrito() {
   const panel = document.getElementById('carrito-panel');
   const overlay = document.getElementById('overlay');
@@ -10,7 +9,6 @@ function mostrarCarrito() {
   }
 }
 
-// Ocultar panel lateral del carrito
 function cerrarCarrito() {
   const panel = document.getElementById('carrito-panel');
   const overlay = document.getElementById('overlay');
@@ -20,7 +18,6 @@ function cerrarCarrito() {
   }
 }
 
-// Actualizar la lista del carrito y contador
 function actualizarCarrito() {
   const lista = document.getElementById('lista-carrito');
   const contador = document.getElementById('contador');
@@ -55,40 +52,36 @@ function actualizarCarrito() {
   totalElem.textContent = total.toLocaleString('es-AR');
 }
 
-// Agregar un producto al carrito
 function agregarAlCarrito(nombre, precio) {
   carrito.push({ nombre, precio });
   actualizarCarrito();
   mostrarCarrito();
 }
 
-// Vaciar todo el carrito
 function limpiarCarrito() {
   carrito = [];
   actualizarCarrito();
   cerrarCarrito();
 }
 
-// Finalizar compra
 function finalizarCompra() {
   if (carrito.length === 0) {
     alert('El carrito está vacío.');
     return;
   }
 
-  let mensaje = "¡Gracias por tu compra! Compraste:\n";
-  carrito.forEach(p => {
-    mensaje += `- ${p.nombre} - $${p.precio.toLocaleString('es-AR')}\n`;
-  });
+  mostrarModalCompra(); 
+  limpiarCarrito();     
+}
+
 
   const total = carrito.reduce((acc, p) => acc + p.precio, 0);
-  mensaje += `Total: $${total.toLocaleString('es-AR')}`;
+  mensaje += `\nTotal de tu compra: $${total.toLocaleString('es-AR')}\n\nPronto nos pondremos en contacto para coordinar el envío.`;
 
   alert(mensaje);
   limpiarCarrito();
-}
 
-// Vincular botones después de que carga la página
+
 document.addEventListener('DOMContentLoaded', () => {
   const btnCarrito = document.getElementById('btn-carrito');
   const cerrar = document.getElementById('cerrar-carrito');
@@ -102,4 +95,5 @@ document.addEventListener('DOMContentLoaded', () => {
   if (comprar) comprar.onclick = finalizarCompra;
   if (overlay) overlay.onclick = cerrarCarrito;
 });
+
 
