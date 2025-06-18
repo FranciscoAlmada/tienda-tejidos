@@ -1,15 +1,15 @@
 :root {
-    --color-principal-claro: #d8b4a0; 
-    --color-principal-oscuro: #7a5c4d; 
-    --color-acento: #d17b88; 
-    --color-acento-hover: #b85f66; 
-    --color-hover-nav: #d79c7c; 
+    --color-principal-claro: #d8b4a0; /* Tu color de cabecera/borde */
+    --color-principal-oscuro: #7a5c4d; /* Tu color de navegación/títulos */
+    --color-acento: #d17b88; /* Tu color de botones/acentos */
+    --color-acento-hover: #b85f66; /* Hover de botones */
+    --color-hover-nav: #d79c7c; /* Hover de navegación */
 
     --color-fondo-body: #fdfaf6;
     --color-texto-principal: #443b32;
-    --color-texto-secundario: #5a4a3b; 
-    --color-fondo-claro: #fff; 
-    --color-borde-suave: #e4dcd4; 
+    --color-texto-secundario: #5a4a3b; /* Texto de precio, labels */
+    --color-fondo-claro: #fff; /* Fondo de productos, modal */
+    --color-borde-suave: #e4dcd4; /* Borde de productos, modal */
 
     --toast-success: #2ecc71;
     --toast-error: #e74c3c;
@@ -23,7 +23,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /
+    font-family: 'Poppins', sans-serif; 
     background-color: var(--color-fondo-body);
     color: var(--color-texto-principal);
     line-height: 1.6;
@@ -61,6 +61,7 @@ nav a:hover {
     color: var(--color-hover-nav);
 }
 
+/* === Hero Section === */
 .hero {
     background: url('img/hero.jpg') center/cover no-repeat; 
     height: 300px;
@@ -255,8 +256,7 @@ footer {
     }
 }
 
-
-#detalle-carrito {
+#detalle-carrito { 
     margin-bottom: 40px;
     border: 1px solid var(--color-borde-suave);
     padding: 20px;
@@ -266,6 +266,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: none; 
 }
 
 #detalle-carrito h2 {
@@ -299,21 +300,7 @@ footer {
     color: var(--color-principal-oscuro);
 }
 
-#detalle-carrito button {
-    background-color: var(--color-acento);
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin: 5px;
-}
 
-#detalle-carrito button:hover {
-    background-color: var(--color-acento-hover);
-}
 
 
 #paginacion {
@@ -350,17 +337,16 @@ footer {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    display: block;
     opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.3s ease-out;
     transform: translateY(20px);
-    pointer-events: none;
+    pointer-events: none; 
 }
 
 #message-container.show {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
+    pointer-events: auto; 
 }
 
 #message-container[data-type="success"] {
@@ -374,7 +360,7 @@ footer {
 }
 
 .modal {
-    display: none;
+    display: none; 
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -383,15 +369,15 @@ footer {
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.6);
-    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 0; 
     transition: opacity 0.3s ease-out;
 }
 
 .modal.show {
-    opacity: 1;
+    display: flex; 
+    opacity: 1; 
 }
 
 .modal-contenido {
@@ -404,7 +390,7 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     position: relative;
     text-align: center;
-    transform: translateY(-50px);
+    transform: translateY(-50px); 
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
@@ -538,6 +524,9 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 1001; 
     transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex; 
+    align-items: center;
+    gap: 8px; 
 }
 
 #btn-carrito:hover {
@@ -558,6 +547,8 @@ footer {
     transition: right 0.3s ease; 
     z-index: 1002;
     overflow-y: auto; 
+    display: flex; 
+    flex-direction: column;
 }
 
 .carrito-panel.mostrar {
@@ -568,12 +559,14 @@ footer {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: var(--color-principal-oscuro);
+    text-align: center; 
 }
 
 .carrito-panel ul {
     list-style: none;
     padding: 0;
     margin-bottom: 20px;
+    flex-grow: 1; 
 }
 
 .carrito-panel li {
@@ -584,9 +577,10 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.95em;
 }
 
-.carrito-panel li button { 
+.carrito-panel li button.remove-from-cart { 
     font-weight: bold;
     border: none;
     background: none;
@@ -594,32 +588,36 @@ footer {
     cursor: pointer;
     margin-left: 10px;
     font-size: 1.1rem;
-    padding: 0;
+    padding: 0 5px; 
     line-height: 1;
     transition: color 0.3s ease;
+    flex-shrink: 0; 
 }
 
-.carrito-panel li button:hover {
+.carrito-panel li button.remove-from-cart:hover {
     color: var(--color-acento-hover);
 }
 
-.carrito-panel button:not(#cerrar-carrito) { 
+.carrito-panel #vaciar-carrito-panel,
+.carrito-panel #comprar-carrito-panel {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: var(--color-acento);
     color: white;
     border: none;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1em;
     transition: background-color 0.3s ease;
 }
 
-.carrito-panel button:not(#cerrar-carrito):hover {
+.carrito-panel #vaciar-carrito-panel:hover,
+.carrito-panel #comprar-carrito-panel:hover {
     background-color: var(--color-acento-hover);
 }
 
-#cerrar-carrito { 
+#cerrar-carrito-panel { 
     background: none;
     border: none;
     font-size: 24px;
@@ -629,9 +627,11 @@ footer {
     right: 15px;
     cursor: pointer;
     transition: color 0.3s ease;
+    line-height: 1;
+    padding: 5px; 
 }
 
-#cerrar-carrito:hover {
+#cerrar-carrito-panel:hover { 
     color: var(--color-acento);
 }
 
@@ -644,8 +644,21 @@ footer {
     background: rgba(0,0,0,0.5);
     z-index: 1000; 
     display: none; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
 }
 
 .overlay.mostrar {
     display: block; 
+    opacity: 1; 
+}
+
+@media (max-width: 480px) {
+    .carrito-panel {
+        width: 100%; 
+        right: -100%;
+    }
+    .carrito-panel.mostrar {
+        right: 0;
+    }
 }
