@@ -1,245 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mompat Prendas y Tejidos</title>
-  <link rel="stylesheet" href="css/estilos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inicio | Mompat Prendas y Tejidos</title>
 
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/estilos.css" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
-
-    header {
-      background-color: #f8f8f8;
-      padding: 20px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header img {
-      width: 150px;
-      margin-bottom: 10px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 500;
-    }
-
-    nav {
-      background-color: #ffffff;
-      border-bottom: 1px solid #ddd;
-      text-align: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #555;
-      margin: 0 20px;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #d17b88;
-    }
-
-    .hero {
-      background: url('tus-imagenes/hero.jpg') center/cover no-repeat;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 20px;
-      border-radius: 5px;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .producto {
-      border: 1px solid #eee;
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-      background-color: #fafafa;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .producto:hover {
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .producto img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    .producto h3 {
-      margin: 15px 0 5px;
-      font-size: 1.2rem;
-    }
-
-    .producto p {
-      margin: 0 0 15px;
-      color: #777;
-    }
-
-    .producto button {
-      background-color: #d17b88;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .producto button:hover {
-      background-color: #b85f66;
-    }
-
-    #quienes-somos {
-      padding: 40px 20px;
-      background-color: #fefefe;
-      text-align: center;
-      border-top: 1px solid #eee;
-      margin-top: 60px;
-    }
-
-    #quienes-somos h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #d17b88;
-    }
-
-    #quienes-somos p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    footer {
-      background-color: #f8f8f8;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #999;
-      margin-top: 60px;
-      border-top: 1px solid #ddd;
-    }
-  </style>
-</head>
+    </head>
 <body>
 
-  <header>
-    <img src="logo/logo.png" alt="Logo Mompat">
-    <h1>Mompat Prendas y Tejidos</h1>
-  </header>
+    <header>
+        <img src="img/logo.png" alt="Logo Mompat"> <h1>Mompat Prendas y Tejidos</h1>
+    </header>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="productos.html">Productos</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
 
-  <div class="hero">
-    <h2>Tejidos únicos hechos con amor</h2>
-  </div>
+    <div class="hero">
+        <h2>Tejidos únicos hechos con amor</h2>
+    </div>
 
-  <!-- Botón flotante del carrito -->
-  <button id="btn-carrito">🛒 Carrito (<span id="contador">0</span>)</button>
+    <div id="message-container">
+        <span id="message-text"></span>
+    </div>
 
-  <!-- Carrito lateral -->
-  <div id="carrito-panel" class="carrito-panel">
-    <button id="cerrar-carrito">×</button>
-    <h2>Tu carrito</h2>
-    <ul id="lista-carrito"></ul>
-    <p>Total: $<span id="total">0</span></p>
-    <button id="btn-comprar">Comprar</button>
-    <button id="btn-vaciar">Vaciar carrito</button>
-  </div>
+    <main>
+        <h2>Destacados de la Temporada</h2>
+        <section class="productos" id="productos-lista-inicio">
+            <div class="producto">
+                <img src="img/tejido1.jpg" alt="Sweater">
+                <h3>Sweater</h3>
+                <p>$13.200</p>
+                <button class="add-to-cart" data-id="sw-001" data-name="Sweater" data-price="13200">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_sweater" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <img src="img/tejido2.jpg" alt="Sweater blanco">
+                <h3>Sweater blanco</h3>
+                <p>$15.400</p>
+                <button class="add-to-cart" data-id="sw-002" data-name="Sweater blanco" data-price="15400">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_sweater_blanco" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <img src="img/tejido3.jpg" alt="Cubre mesa">
+                <h3>Cubre mesa</h3>
+                <p>$12.800</p>
+                <button class="add-to-cart" data-id="cm-001" data-name="Cubre mesa" data-price="12800">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_cubre_mesa" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <img src="img/tejido4.jpg" alt="Conjunto bebé">
+                <h3>Conjunto bebé</h3>
+                <p>$22.800</p>
+                <button class="add-to-cart" data-id="cb-001" data-name="Conjunto bebé" data-price="22800">Agregar al carrito</button><br><br>
+                <a href="https://mpago.la/tu_link_conjunto_bebe" target="_blank" class="boton-comprar">Comprar por Mercado Pago</a><br>
+                <a href="https://wa.me/5493442530793" target="_blank" class="boton-whatsapp">Consultá por WhatsApp</a>
+            </div>
+        </section>
 
-  <!-- Fondo oscuro -->
-  <div id="overlay" class="overlay"></div>
+        <section id="quienes-somos">
+            <h2>¿Quiénes somos?</h2>
+            <p>
+                En <strong>Mompat Prendas y Tejidos</strong>, creo en la calidez de lo hecho a mano. Soy una artesana argentina, de Concepción del Uruguay, Entre Ríos, dedicada a crear prendas únicas, tejidas con amor y dedicación. Cada producto refleja mi pasión por el tejido artesanal y el deseo de ofrecer algo especial para cada persona.
+            </p>
+        </section>
+        <section id="quienes-somos"> <h2>Consultas</h2>
+            <p>
+                Para consultas personalizadas, podés enviarnos un correo en la sección <strong>Contacto</strong> o escribirnos por WhatsApp en la sección Productos.
+            </p>
+        </section>
+    </main>
 
-  <main>
-    <section class="productos">
-      <div class="producto">
-        <img src="img/tejido1.jpg" alt="Tejido 1">
-        <h3>Sweater</h3>
-        <p>$13.200</p>
-        <button onclick="agregarAlCarrito('Sweater', 13200)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/tejido2.jpg" alt="Tejido 2">
-        <h3>Sweater blanco</h3>
-        <p>$15.400</p>
-        <button onclick="agregarAlCarrito('Sweater blanco', 15400)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/tejido3.jpg" alt="Tejido 3">
-        <h3>Cubre mesa</h3>
-        <p>$12.800</p>
-        <button onclick="agregarAlCarrito('Cubre mesa', 12800)">Agregar al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/tejido4.jpg" alt="Tejido 4">
-        <h3>Conjunto bebé</h3>
-        <p>$22.800</p>
-        <button onclick="agregarAlCarrito('Conjunto bebé', 22800)">Agregar al carrito</button>
-      </div>
-    </section>
+    <footer>
+        &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
+    </footer>
 
-    <section id="quienes-somos">
-      <h2>¿Quiénes somos?</h2>
-      <p>
-        En <strong>Mompat Prendas y Tejidos</strong>  creo en la calidez de lo hecho a mano. Soy una artesana argentina, de Concepción del Uruguay, Entre Ríos, dedicada a crear prendas únicas, tejidas con amor y dedicación. Cada producto refleja mi pasión por el tejido artesanal y el deseo de ofrecer algo especial para cada persona.
+    <button id="btn-carrito">
+        🛒 Carrito (<span id="contador-flotante">0</span>)
+    </button>
 
+    <div class="carrito-panel" id="carrito-panel">
+        <button id="cerrar-carrito">&times;</button>
+        <h2>Tu Carrito</h2>
+        <ul id="lista-carrito-panel"></ul>
+        <p>Total: $<span id="total-panel">0</span></p>
+        <button id="vaciar-carrito-panel">Vaciar carrito</button>
+        <button id="finalizar-compra-panel">Comprar</button>
+    </div>
 
-      </p>
-    </section>
-     <section id="quienes-somos">
-      <h2>Consultas</h2>
-      <p>
-        <strong></strong>Para consultas personalizadas, podés enviarnos un correo en la sección <strong>Contacto<strong></strong> escribirnos por WhatsApp en la sección Productos.
-      </p>
-    </section>
-  </main>
+    <div class="overlay" id="overlay"></div>
 
-  <footer>
-    &copy; 2025 Mompat Prendas y Tejidos. Todos los derechos reservados.
-  </footer>
+    <div id="modal-compra" class="modal">
+        <div class="modal-contenido">
+            <span id="cerrar-modal" class="cerrar">&times;</span>
+            <h2>¡Gracias por tu compra!</h2>
+            <div id="resumen-compra" class="detalle"></div>
+            <button onclick="cerrarModal()" class="btn-volver">Volver a la tienda</button>
+        </div>
+    </div>
 
-  <script src="js/main.js"></script>
+    <script>
+        let carrito = []; 
+
+        const contadorFlotante = document.getElementById('contador-flotante');
+        const listaCarritoPanel = document.getElementById('lista-carrito-panel');
+        const totalPanel = document.getElementById('total-panel');
+        const carritoPanel = document.getElementById('carrito-panel');
+        const overlay = document.getElementById('overlay');
+        const messageContainer = document.getElementById('message-container');
+        const messageText = document.getElementById('message-text');
+
+        const modalCompra = document.getElementById('modal-compra');
+        const resumenCompraDiv = document.getElementById('resumen-compra');
+        const cerrarModalBtn = document.getElementById('cerrar-modal');
+        const btnVolverTienda = modalCompra.querySelector('.btn-volver');
+
+        function showMessage(text, type = 'success') {
+            messageText.textContent = text;
+            messageContainer.setAttribute('data-type', type);
+            messageContainer.classList.add('show');
+
+            setTimeout(() => {
+                messageContainer.classList.remove('show');
+            }, 3000);
+        }
+
+        function actualizarCarritoUI() {
+            listaCarritoPanel.innerHTML = ''; 
+            let total = 0;
+
+            if (carrito.length === 0) {
+                listaCarritoPanel.innerHTML = '<li style="text-align: center; color: var(--color-texto-secundario);">Tu carrito está vacío.</li>';
+            } else {
+                carrito.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <span>${item.name} x ${item.quantity} - $${(item.price * item.quantity).toLocaleString('es-AR')}</span>
+                        <button class="remove-from-cart" data-index="${index}">❌</button>
+                    `;
+                    listaCarritoPanel.appendChild(li);
+                    total += item.price * item.quantity;
+                });
+            }
+
+            contadorFlotante.textContent = carrito.reduce((acc, item) => acc + item.quantity, 0);
+            totalPanel.textContent = total.toLocaleString('es-AR');
+
+            document.querySelectorAll('#lista-carrito-panel .remove-from-cart').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const itemIndex = parseInt(event.target.dataset.index);
+                    eliminarDelCarrito(itemIndex);
+                });
+            });
+        }
+
+        function agregarAlCarrito(productId, productName, productPrice) {
+            const existingItem = carrito.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+                showMessage(`Se añadió otra unidad de "${productName}".`, 'success');
+            } else {
+                carrito.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                showMessage(`"${productName}" fue agregado al carrito.`, 'success');
+            }
+            actualizarCarritoUI();
+        }
+
+        function eliminarDelCarrito(index) {
+            const item = carrito[index];
+            if (item.quantity > 1) {
+                item.quantity--;
+                showMessage(`Una unidad de "${item.name}" fue eliminada.`, 'info');
+            } else {
+                carrito.splice(index, 1);
+                showMessage(`"${item.name}" fue eliminado del carrito.`, 'info');
+            }
+            actualizarCarritoUI();
+        }
+
+        function limpiarCarrito() {
+            if (carrito.length === 0) {
+                showMessage('El carrito ya está vacío.', 'error');
+                return;
+            }
+
+            if (confirm('¿Estás seguro de que querés vaciar el carrito?')) {
+                carrito = [];
+                actualizarCarritoUI();
+                showMessage('Carrito vaciado correctamente.', 'success');
+            }
+        }
+
+        function abrirModalCompra(resumenHTML) {
+            resumenCompraDiv.innerHTML = resumenHTML;
+            modalCompra.style.display = 'flex'; 
+            modalCompra.classList.add('show');
+        }
+
+        function cerrarModal() {
+            modalCompra.classList.remove('show');
+            setTimeout(() => {
+                modalCompra.style.display = 'none';
+            }, 300);
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                showMessage('Tu carrito está vacío. ¡Añade algunos productos para comprar!', 'error');
+                return;
+            }
+
+            let resumenHTML = '';
+            carrito.forEach(p => {
+                resumenHTML += `<p>${p.name} x ${p.quantity}: <strong>$${(p.price * p.quantity).toLocaleString('es-AR')}</strong></p>`;
+            });
+
+            const total = carrito.reduce((acc, p) => acc + (p.price * p.quantity), 0);
+            resumenHTML += `<p><strong>Total: $${total.toLocaleString('es-AR')}</strong></p>`;
+
+            abrirModalCompra(resumenHTML);
+
+            carrito = [];
+            actualizarCarritoUI();
+            cerrarCarritoLateral();
+        }
+
+        function abrirCarritoLateral() {
+            carritoPanel.classList.add('mostrar');
+            overlay.classList.add('mostrar');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function cerrarCarritoLateral() {
+            carritoPanel.classList.remove('mostrar');
+            overlay.classList.remove('mostrar');
+            document.body.style.overflow = ''; 
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const productId = event.target.dataset.id;
+                    const productName = event.target.dataset.name;
+                    const productPrice = parseFloat(event.target.dataset.price);
+                    agregarAlCarrito(productId, productName, productPrice);
+                });
+            });
+
+            document.getElementById('btn-carrito').addEventListener('click', abrirCarritoLateral);
+            document.getElementById('cerrar-carrito').addEventListener('click', cerrarCarritoLateral);
+            document.getElementById('overlay').addEventListener('click', cerrarCarritoLateral);
+
+            document.getElementById('vaciar-carrito-panel').addEventListener('click', limpiarCarrito);
+            document.getElementById('finalizar-compra-panel').addEventListener('click', finalizarCompra);
+
+            cerrarModalBtn.addEventListener('click', cerrarModal);
+            btnVolverTienda.addEventListener('click', cerrarModal);
+            window.addEventListener('click', (event) => {
+                if (event.target === modalCompra) {
+                    cerrarModal();
+                }
+            });
+
+            actualizarCarritoUI();
+        });
+    </script>
 </body>
 </html>
 
