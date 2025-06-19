@@ -35,26 +35,48 @@ header {
     padding: 30px 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    /* --- INICIO: MEJORAS RESPONSIVE HEADER --- */
+    display: flex; /* Para alinear el logo y el h1 */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas pequeñas */
+    gap: 15px; /* Espacio entre el logo y el h1 */
+    /* --- FIN: MEJORAS RESPONSIVE HEADER --- */
+}
+
+header img {
+    max-height: 70px; /* Tamaño del logo */
+    width: auto;
+    object-fit: contain;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 0; /* Eliminar margin-bottom si se usa flexbox */
 }
 
 nav {
     background-color: var(--color-principal-oscuro);
     padding: 15px 0;
     text-align: center;
+
+    /* --- INICIO: MEJORAS RESPONSIVE NAV --- */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+    justify-content: center;
+    gap: 5px; /* Espacio entre los enlaces */
+    /* --- FIN: MEJORAS RESPONSIVE NAV --- */
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
-    margin: 0 15px;
+    /* margin: 0 15px; /* Se moverá a media query para pantallas grandes */
     font-weight: bold;
     font-size: 1rem;
     transition: color 0.3s ease;
+    padding: 5px 10px; /* Añadir padding para hacerlos más fáciles de clickear */
 }
 
 nav a:hover {
@@ -76,6 +98,7 @@ nav a:hover {
     background: rgba(0,0,0,0.4);
     padding: 10px 20px;
     border-radius: 5px;
+    text-align: center; /* Asegura centrado en móviles */
 }
 
 main {
@@ -146,8 +169,6 @@ h2 {
 
 .producto:hover .imagen-container .imagen-principal {
     opacity: 0; /* La imagen principal se desvanece al hacer hover */
-    /* Mantengo el transform de escala solo para el hover de la imagen, si quieres el efecto */
-    /* Si el problema de corte persiste, podrías probar a eliminar esta línea. */
     transform: scale(1.05);
 }
 
@@ -245,50 +266,282 @@ footer {
     font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
 
-    nav a {
-        margin: 0 10px;
-        font-size: 0.9rem;
-    }
+/* --- INICIO: MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
 
-    /* Ajustar la altura del contenedor de imagen en responsive */
-    .imagen-container {
-        height: 200px; /* Consistente con .producto img en este breakpoint */
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
-    nav a {
-        display: block;
-        margin: 10px 0;
-    }
-
+/* Estilos para pantallas medianas (tablets y laptops pequeñas) */
+@media (max-width: 1024px) {
     main {
-        padding: 20px 10px;
+        padding: 30px 15px; /* Reducir padding general */
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Ajustar tamaño de títulos principales */
+        margin-bottom: 25px;
     }
 
     .productos {
-        grid-template-columns: 1fr;
+        gap: 25px; /* Reducir el espacio entre productos */
+    }
+
+    .producto {
+        padding: 15px; /* Reducir padding de las tarjetas de producto */
+    }
+
+    .imagen-container {
+        height: 220px; /* Ajustar altura para tablets */
+    }
+
+    .producto h3 {
+        font-size: 1.15rem;
+    }
+
+    .producto p {
+        font-size: 0.95rem;
+    }
+
+    /* Navegación para tablets: espacio entre enlaces */
+    nav a {
+        margin: 0 10px;
+    }
+
+    .hero h2 {
+        font-size: 2rem; /* Reducir tamaño de fuente del hero */
+        padding: 8px 15px;
+    }
+
+    #quienes-somos {
+        padding: 30px 15px;
+        margin-top: 50px;
+    }
+    #quienes-somos h2 {
+        font-size: 1.8rem;
+    }
+    #quienes-somos p {
+        font-size: 0.95rem;
+    }
+
+    footer {
+        padding: 18px;
+    }
+}
+
+
+/* Estilos para pantallas pequeñas (celulares grandes y tablets pequeñas en vertical) */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 15px;
+    }
+    header img {
+        max-height: 60px;
+    }
+    header h1 {
+        font-size: 2rem; /* Ya estaba, se mantiene */
+        margin-left: 0; /* Asegurar que no haya margen izquierdo que lo desplace */
+        text-align: center;
+    }
+
+    nav {
+        padding: 10px 0;
+        /* Los elementos ya están en flex y se envolverán. */
+        gap: 0; /* Eliminar gap para que los enlaces puedan ocupar el ancho completo si se apilan */
+    }
+    nav a {
+        font-size: 0.9rem; /* Ya estaba, se mantiene */
+        margin: 5px 8px; /* Pequeño margen para separación si están en línea */
+    }
+
+    .hero {
+        height: 250px; /* Reducir un poco más la altura */
+    }
+    .hero h2 {
+        font-size: 1.8rem; /* Reducir aún más el tamaño del título hero */
+    }
+
+    main {
+        padding: 25px 15px; /* Ajustar padding */
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .productos {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Permitir productos un poco más pequeños */
         gap: 20px;
     }
 
-    /* Ajustar la altura del contenedor de imagen en responsive */
+    .producto {
+        padding: 12px;
+    }
+
     .imagen-container {
-        height: 180px; /* Consistente con .producto img en este breakpoint */
+        height: 200px; /* Ya estaba, se mantiene */
+        margin-bottom: 12px;
     }
 
     .producto h3 {
         font-size: 1.1rem;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+    .producto p {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    .producto button,
+    .producto .boton-comprar,
+    .producto .boton-whatsapp {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+        margin: 8px auto;
+    }
+
+    #quienes-somos {
+        padding: 25px 15px;
+        margin-top: 40px;
+    }
+    #quienes-somos h2 {
+        font-size: 1.6rem;
+    }
+    #quienes-somos p {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 15px;
+    }
+
+    /* Carrito flotante */
+    #btn-carrito {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 15px;
+        font-size: 14px;
+        gap: 6px;
     }
 }
+
+
+/* Estilos para pantallas muy pequeñas (celulares) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column; /* Apilar logo y h1 */
+        gap: 10px; /* Reducir espacio entre ellos */
+        padding: 15px 10px;
+    }
+    header img {
+        max-height: 50px;
+    }
+    header h1 {
+        font-size: 1.8rem; /* Ya estaba en 1.5rem, lo ajusto a 1.8 para mejor legibilidad */
+    }
+
+    nav {
+        flex-direction: column; /* Apilar los enlaces de navegación */
+        padding: 10px 10px;
+    }
+    nav a {
+        display: block; /* Cada enlace toma su propia línea */
+        margin: 8px 0; /* Espacio vertical entre los enlaces */
+        font-size: 0.95rem; /* Asegurar que sean legibles */
+    }
+
+    .hero {
+        height: 200px; /* Aún más pequeña la altura del hero */
+    }
+    .hero h2 {
+        font-size: 1.5rem; /* Ajustar tamaño de fuente del hero */
+        padding: 6px 12px;
+    }
+
+    main {
+        padding: 20px 10px; /* Ya estaba, se mantiene */
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .productos {
+        grid-template-columns: 1fr; /* Ya estaba, se mantiene: Una columna por producto */
+        gap: 15px;
+    }
+
+    .imagen-container {
+        height: 180px; /* Ya estaba, se mantiene */
+        margin-bottom: 10px;
+    }
+
+    .producto h3 {
+        font-size: 1rem;
+        margin-top: 8px;
+        margin-bottom: 6px;
+    }
+    .producto p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+
+    .producto button,
+    .producto .boton-comprar,
+    .producto .boton-whatsapp {
+        width: 100%; /* Botones de producto al 100% de ancho */
+        font-size: 0.8rem;
+        padding: 10px;
+        margin: 6px auto;
+    }
+
+    #quienes-somos {
+        padding: 20px 10px;
+        margin-top: 30px;
+    }
+    #quienes-somos h2 {
+        font-size: 1.4rem;
+    }
+    #quienes-somos p {
+        font-size: 0.85rem;
+    }
+
+    footer {
+        padding: 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Carrito panel */
+    .carrito-panel {
+        width: 100%; /* Ya estaba, se mantiene */
+        right: -100%; /* Ya estaba, se mantiene */
+        padding: 15px; /* Ya estaba, se mantiene */
+    }
+    .carrito-panel.mostrar {
+        right: 0; /* Ya estaba, se mantiene */
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.9rem; /* Ajustar fuente de formularios */
+        padding: 7px;
+    }
+
+    .form-buttons button {
+        flex-grow: 1; /* Ya estaba, se mantiene */
+        font-size: 0.85rem; /* Ajustar fuente de botones de formulario */
+        padding: 8px 10px;
+    }
+
+    #checkout-form-view h3,
+    #order-summary-view h3 {
+        font-size: 1.1rem; /* Ajustar fuente de títulos de checkout */
+        margin-bottom: 10px;
+    }
+}
+
+/* --- FIN: MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
+
 
 #detalle-carrito {
     margin-bottom: 40px;
@@ -296,10 +549,10 @@ footer {
     padding: 20px;
     border-radius: 10px;
     background-color: var(--color-fondo-claro);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: none;
 }
 
@@ -580,6 +833,9 @@ footer {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    /* --- INICIO: MEJORAS RESPONSIVE CARRITO PANEL --- */
+    max-width: 90%; /* Para que en tablets no ocupe todo el ancho si es muy grande */
+    /* --- FIN: MEJORAS RESPONSIVE CARRITO PANEL --- */
 }
 
 .carrito-panel.mostrar {
@@ -684,15 +940,18 @@ footer {
     opacity: 1;
 }
 
+/* Regla existente para carrito panel en móvil */
 @media (max-width: 480px) {
     .carrito-panel {
         width: 100%;
         right: -100%;
+        padding: 15px;
     }
     .carrito-panel.mostrar {
         right: 0;
     }
 }
+
 .descripcion-breve {
     color: var(--color-texto-secundario);
     font-size: 0.9rem;
@@ -724,7 +983,7 @@ footer {
     padding: 10px;
     border: 1px solid var(--color-borde-suave);
     border-radius: 6px;
-    font-size: 1rem;
+    resize: vertical;
     color: var(--color-texto-principal);
     background-color: var(--color-fondo-claro);
     box-sizing: border-box;
@@ -846,28 +1105,3 @@ footer {
     transform: none;
 }
 
-@media (max-width: 480px) {
-    .carrito-panel {
-        width: 100%;
-        right: -100%;
-        padding: 15px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        font-size: 0.95rem;
-        padding: 8px;
-    }
-
-    .form-buttons button {
-        flex-grow: 1;
-        font-size: 0.9rem;
-        padding: 10px 12px;
-    }
-
-    #checkout-form-view h3,
-    #order-summary-view h3 {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-}
