@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <img src="img/logo.png" alt="Logo Mompat"> <h1>Mompat Prendas y Tejidos</h1>
+        <img src="img/logo1.png" alt="Logo Mompat"> <h1>Mompat Prendas y Tejidos</h1>
     </header>
 
     <nav>
@@ -173,7 +173,6 @@
     </div>
     <div class="overlay"></div>
     <script>
-        // Carrito y datos del cliente se guardan en localStorage para persistir entre páginas
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         let datosCliente = JSON.parse(localStorage.getItem('datosCliente')) || {};
 
@@ -218,7 +217,6 @@
         function abrirCarritoPanel() {
             carritoPanel.classList.add('mostrar');
             overlay.classList.add('mostrar');
-            // Show cart view by default when opening panel
             carritoView.classList.remove('hidden');
             checkoutFormView.classList.add('hidden');
             orderSummaryView.classList.add('hidden');
@@ -292,7 +290,6 @@
                 return;
             }
 
-            // Usamos una confirmación más profesional (puedes personalizar el modal si quieres)
             const confirmVacio = window.confirm('¿Estás seguro de que deseas vaciar todos los productos de tu carrito? Esta acción es irreversible.');
 
             if (confirmVacio) {
@@ -309,21 +306,17 @@
             }
         }
 
-        // Esta función abrirá el modal de "Gracias por tu compra" que tenías antes
-        // pero la usaremos al final del proceso de WhatsApp.
         function abrirModalCompra(resumenHTML) {
             resumenCompraDiv.innerHTML = resumenHTML;
             modalCompra.style.display = 'flex';
             modalCompra.classList.add('show');
         }
 
-        // Esta función cerrará el modal de "Gracias por tu compra"
         function cerrarModal() {
             modalCompra.classList.remove('show');
             setTimeout(() => {
                 modalCompra.style.display = 'none';
             }, 300);
-            // Al cerrar el modal, vaciamos el carrito y los datos del cliente
             carrito = [];
             datosCliente = {};
             localStorage.removeItem('datosCliente');
@@ -340,7 +333,6 @@
             checkoutFormView.classList.remove('hidden');
             orderSummaryView.classList.add('hidden');
 
-            // Precarga los datos si ya existen en localStorage
             if (datosCliente.nombre) document.getElementById('nombre').value = datosCliente.nombre;
             if (datosCliente.email) document.getElementById('email').value = datosCliente.email;
             if (datosCliente.telefono) document.getElementById('telefono').value = datosCliente.telefono;
@@ -351,7 +343,7 @@
         }
 
         function showOrderSummary(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+            event.preventDefault(); 
 
             datosCliente = {
                 nombre: document.getElementById('nombre').value,
@@ -362,7 +354,7 @@
                 codigoPostal: document.getElementById('codigoPostal').value,
                 notas: document.getElementById('notas').value
             };
-            localStorage.setItem('datosCliente', JSON.stringify(datosCliente)); // Guarda los datos del cliente
+            localStorage.setItem('datosCliente', JSON.stringify(datosCliente)); 
 
             let resumenHTML = '<h4>Productos:</h4><ul>';
             let total = 0;
@@ -409,13 +401,8 @@
             const whatsappURL = `https://wa.me/5493442530793?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
 
-            // Después de enviar por WhatsApp, cerramos el modal y el panel,
-            // y luego mostramos el modal de confirmación final.
-            cerrarCarritoPanel(); // Cierra el panel del carrito
-            // Muestra el modal de "Gracias por tu compra" que tenías antes
-            // Reutilizamos la función abrirModalCompra, pero sin un resumen específico porque el mensaje ya se envió.
-            // Puedes adaptar el contenido del modal si lo deseas, o simplemente llamo a cerrarModal para limpiar el carrito.
-            cerrarModal(); // Esta función ya vacía el carrito y los datos del cliente y muestra un mensaje de éxito.
+            cerrarCarritoPanel(); 
+            cerrarModal(); 
         }
 
         document.addEventListener('DOMContentLoaded', () => {
