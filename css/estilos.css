@@ -36,24 +36,22 @@ header {
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 
-    /* --- INICIO: MEJORAS RESPONSIVE HEADER --- */
-    display: flex; /* Para alinear el logo y el h1 */
+    display: flex; 
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea en pantallas pequeñas */
-    gap: 15px; /* Espacio entre el logo y el h1 */
-    /* --- FIN: MEJORAS RESPONSIVE HEADER --- */
+    flex-wrap: wrap; 
+    gap: 15px; 
 }
 
 header img {
-    max-height: 70px; /* Tamaño del logo */
+    max-height: 70px; 
     width: auto;
     object-fit: contain;
 }
 
 header h1 {
     font-size: 2.5rem;
-    margin-bottom: 0; /* Eliminar margin-bottom si se usa flexbox */
+    margin-bottom: 0; 
 }
 
 nav {
@@ -61,22 +59,19 @@ nav {
     padding: 15px 0;
     text-align: center;
 
-    /* --- INICIO: MEJORAS RESPONSIVE NAV --- */
     display: flex;
-    flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+    flex-wrap: wrap; 
     justify-content: center;
-    gap: 5px; /* Espacio entre los enlaces */
-    /* --- FIN: MEJORAS RESPONSIVE NAV --- */
+    gap: 5px; 
 }
 
 nav a {
     text-decoration: none;
     color: #fff;
-    /* margin: 0 15px; /* Se moverá a media query para pantallas grandes */
     font-weight: bold;
     font-size: 1rem;
     transition: color 0.3s ease;
-    padding: 5px 10px; /* Añadir padding para hacerlos más fáciles de clickear */
+    padding: 5px 10px; 
 }
 
 nav a:hover {
@@ -98,7 +93,7 @@ nav a:hover {
     background: rgba(0,0,0,0.4);
     padding: 10px 20px;
     border-radius: 5px;
-    text-align: center; /* Asegura centrado en móviles */
+    text-align: center; 
 }
 
 main {
@@ -135,48 +130,46 @@ h2 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* --- Estilos ACTUALIZADOS para el efecto de Hover en las imágenes --- */
 .imagen-container {
     position: relative;
     width: 100%;
-    height: 250px; /* Asegura una altura definida para el contenedor */
-    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+    height: 250px; 
+    overflow: hidden; 
     border-radius: 10px;
-    margin-bottom: 15px; /* Espacio entre la imagen y el título del producto */
+    margin-bottom: 15px; 
 }
 
 .imagen-container img {
-    position: absolute; /* Posiciona las imágenes absolutamente dentro del contenedor */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cubre el área del contenedor sin distorsionar la imagen */
+    object-fit: cover; 
     border-radius: 10px;
-    transition: opacity 0.4s ease, transform 0.4s ease; /* Transición para opacidad y escala */
-    cursor: pointer; /* Cursor de puntero al pasar por encima */
+    transition: opacity 0.4s ease, transform 0.4s ease; 
+    cursor: pointer; 
 }
 
 .imagen-container .imagen-principal {
-    opacity: 1; /* La imagen principal es visible por defecto */
-    z-index: 2; /* Asegura que la imagen principal esté por encima por defecto */
+    opacity: 1; 
+    z-index: 2; 
 }
 
 .imagen-container .imagen-hover {
-    opacity: 0; /* La imagen de hover está oculta por defecto */
-    z-index: 1; /* La imagen de hover está por debajo de la principal por defecto */
+    opacity: 0; 
+    z-index: 1; 
 }
 
 .producto:hover .imagen-container .imagen-principal {
-    opacity: 0; /* La imagen principal se desvanece al hacer hover */
+    opacity: 0; 
     transform: scale(1.05);
 }
 
 .producto:hover .imagen-container .imagen-hover {
-    opacity: 1; /* La imagen de hover aparece al hacer hover */
-    transform: scale(1.05); /* Aplico la misma escala para que se vea un movimiento consistente */
+    opacity: 1; 
+    transform: scale(1.05); 
 }
-/* --- Fin de Estilos ACTUALIZADOS para el efecto de Hover en las imágenes --- */
 
 
 .producto h3 {
@@ -267,29 +260,27 @@ footer {
 }
 
 
-/* --- INICIO: MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
 
-/* Estilos para pantallas medianas (tablets y laptops pequeñas) */
 @media (max-width: 1024px) {
     main {
-        padding: 30px 15px; /* Reducir padding general */
+        padding: 30px 15px; 
     }
 
     h2 {
-        font-size: 1.8rem; /* Ajustar tamaño de títulos principales */
+        font-size: 1.8rem; 
         margin-bottom: 25px;
     }
 
     .productos {
-        gap: 25px; /* Reducir el espacio entre productos */
+        gap: 25px; 
     }
 
     .producto {
-        padding: 15px; /* Reducir padding de las tarjetas de producto */
+        padding: 15px; 
     }
 
     .imagen-container {
-        height: 220px; /* Ajustar altura para tablets */
+        height: 220px; 
     }
 
     .producto h3 {
@@ -300,13 +291,12 @@ footer {
         font-size: 0.95rem;
     }
 
-    /* Navegación para tablets: espacio entre enlaces */
     nav a {
         margin: 0 10px;
     }
 
     .hero h2 {
-        font-size: 2rem; /* Reducir tamaño de fuente del hero */
+        font-size: 2rem; 
         padding: 8px 15px;
     }
 
@@ -327,7 +317,6 @@ footer {
 }
 
 
-/* Estilos para pantallas pequeñas (celulares grandes y tablets pequeñas en vertical) */
 @media (max-width: 768px) {
     header {
         padding: 20px 15px;
@@ -336,30 +325,29 @@ footer {
         max-height: 60px;
     }
     header h1 {
-        font-size: 2rem; /* Ya estaba, se mantiene */
-        margin-left: 0; /* Asegurar que no haya margen izquierdo que lo desplace */
+        font-size: 2rem; 
+        margin-left: 0;                            
         text-align: center;
     }
 
     nav {
         padding: 10px 0;
-        /* Los elementos ya están en flex y se envolverán. */
-        gap: 0; /* Eliminar gap para que los enlaces puedan ocupar el ancho completo si se apilan */
+        gap: 0; 
     }
     nav a {
-        font-size: 0.9rem; /* Ya estaba, se mantiene */
-        margin: 5px 8px; /* Pequeño margen para separación si están en línea */
+        font-size: 0.9rem; 
+        margin: 5px 8px; 
     }
 
     .hero {
-        height: 250px; /* Reducir un poco más la altura */
+        height: 250px; 
     }
     .hero h2 {
-        font-size: 1.8rem; /* Reducir aún más el tamaño del título hero */
+        font-size: 1.8rem; 
     }
 
     main {
-        padding: 25px 15px; /* Ajustar padding */
+        padding: 25px 15px; 
     }
 
     h2 {
@@ -368,7 +356,7 @@ footer {
     }
 
     .productos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Permitir productos un poco más pequeños */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
         gap: 20px;
     }
 
@@ -377,7 +365,7 @@ footer {
     }
 
     .imagen-container {
-        height: 200px; /* Ya estaba, se mantiene */
+        height: 200px; 
         margin-bottom: 12px;
     }
 
@@ -414,7 +402,6 @@ footer {
         padding: 15px;
     }
 
-    /* Carrito flotante */
     #btn-carrito {
         bottom: 15px;
         right: 15px;
@@ -425,40 +412,39 @@ footer {
 }
 
 
-/* Estilos para pantallas muy pequeñas (celulares) */
 @media (max-width: 480px) {
     header {
-        flex-direction: column; /* Apilar logo y h1 */
-        gap: 10px; /* Reducir espacio entre ellos */
+        flex-direction: column; 
+        gap: 10px; 
         padding: 15px 10px;
     }
     header img {
         max-height: 50px;
     }
     header h1 {
-        font-size: 1.8rem; /* Ya estaba en 1.5rem, lo ajusto a 1.8 para mejor legibilidad */
+        font-size: 1.8rem; 
     }
 
     nav {
-        flex-direction: column; /* Apilar los enlaces de navegación */
+        flex-direction: column; 
         padding: 10px 10px;
     }
     nav a {
-        display: block; /* Cada enlace toma su propia línea */
-        margin: 8px 0; /* Espacio vertical entre los enlaces */
-        font-size: 0.95rem; /* Asegurar que sean legibles */
+        display: block; 
+        margin: 8px 0; 
+        font-size: 0.95rem; 
     }
 
     .hero {
-        height: 200px; /* Aún más pequeña la altura del hero */
+        height: 200px; 
     }
     .hero h2 {
-        font-size: 1.5rem; /* Ajustar tamaño de fuente del hero */
+        font-size: 1.5rem; 
         padding: 6px 12px;
     }
 
     main {
-        padding: 20px 10px; /* Ya estaba, se mantiene */
+        padding: 20px 10px; 
     }
 
     h2 {
@@ -467,12 +453,12 @@ footer {
     }
 
     .productos {
-        grid-template-columns: 1fr; /* Ya estaba, se mantiene: Una columna por producto */
+        grid-template-columns: 1fr; 
         gap: 15px;
     }
 
     .imagen-container {
-        height: 180px; /* Ya estaba, se mantiene */
+        height: 180px; 
         margin-bottom: 10px;
     }
 
@@ -489,7 +475,7 @@ footer {
     .producto button,
     .producto .boton-comprar,
     .producto .boton-whatsapp {
-        width: 100%; /* Botones de producto al 100% de ancho */
+        width: 100%; 
         font-size: 0.8rem;
         padding: 10px;
         margin: 6px auto;
@@ -511,36 +497,34 @@ footer {
         font-size: 0.8rem;
     }
 
-    /* Carrito panel */
     .carrito-panel {
-        width: 100%; /* Ya estaba, se mantiene */
-        right: -100%; /* Ya estaba, se mantiene */
-        padding: 15px; /* Ya estaba, se mantiene */
+        width: 100%; 
+        right: -100%; 
+        padding: 15px; 
     }
     .carrito-panel.mostrar {
-        right: 0; /* Ya estaba, se mantiene */
+        right: 0; 
     }
 
     .form-group input,
     .form-group textarea {
-        font-size: 0.9rem; /* Ajustar fuente de formularios */
+        font-size: 0.9rem; 
         padding: 7px;
     }
 
     .form-buttons button {
-        flex-grow: 1; /* Ya estaba, se mantiene */
-        font-size: 0.85rem; /* Ajustar fuente de botones de formulario */
+        flex-grow: 1; 
+        font-size: 0.85rem; 
         padding: 8px 10px;
     }
 
     #checkout-form-view h3,
     #order-summary-view h3 {
-        font-size: 1.1rem; /* Ajustar fuente de títulos de checkout */
+        font-size: 1.1rem; 
         margin-bottom: 10px;
     }
 }
 
-/* --- FIN: MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
 
 
 #detalle-carrito {
@@ -833,9 +817,7 @@ footer {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    /* --- INICIO: MEJORAS RESPONSIVE CARRITO PANEL --- */
-    max-width: 90%; /* Para que en tablets no ocupe todo el ancho si es muy grande */
-    /* --- FIN: MEJORAS RESPONSIVE CARRITO PANEL --- */
+    max-width: 90%; 
 }
 
 .carrito-panel.mostrar {
@@ -940,7 +922,6 @@ footer {
     opacity: 1;
 }
 
-/* Regla existente para carrito panel en móvil */
 @media (max-width: 480px) {
     .carrito-panel {
         width: 100%;
@@ -1104,4 +1085,5 @@ footer {
     color: var(--color-acento);
     transform: none;
 }
+
 
